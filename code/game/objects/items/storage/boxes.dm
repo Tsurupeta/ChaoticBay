@@ -154,12 +154,12 @@
 /obj/item/storage/box/blanks
 	name = "box of blank shells"
 	desc = "It has a picture of a gun and several warning symbols on the front."
-	startswith = list(/obj/item/ammo_casing/shotgun/blank = 7)
+	startswith = list(/obj/item/ammo_casing/s12g/blank = 7)
 
 /obj/item/storage/box/flash
 	name = "box of illumination shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_casing/shotgun/flash = 7)
+	startswith = list(/obj/item/ammo_casing/s12g/flash = 7)
 
 /obj/item/storage/box/shotgun
 	icon = 'icons/obj/shotgunshells.dmi'
@@ -184,30 +184,30 @@
 	icon_state = "shotgunshells"
 	name = "box of shotgun shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_casing/shotgun/pellet = 20)
+	startswith = list(/obj/item/ammo_casing/s12g/pellet = 20)
 
 /obj/item/storage/box/shotgun/slugs
 	icon_state = "shotgunslugs"
 	name = "box of shotgun slugs"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_casing/shotgun = 20)
+	startswith = list(/obj/item/ammo_casing/s12g = 20)
 
 /obj/item/storage/box/shotgun/beanbags
 	icon_state = "shotgunbeanbag"
 	name = "box of beanbag shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_casing/shotgun/beanbag = 20)
+	startswith = list(/obj/item/ammo_casing/s12g/beanbag = 20)
 
 /obj/item/storage/box/shotgun/stunshells
 	icon_state = "shotgunstuns"
 	name = "box of stun shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_casing/shotgun/stunshell = 20)
+	startswith = list(/obj/item/ammo_casing/s12g/stunshell = 20)
 
 /obj/item/storage/box/practiceshells
 	name = "box of practice shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_casing/shotgun/practice = 7)
+	startswith = list(/obj/item/ammo_casing/s12g/practice = 7)
 
 /obj/item/storage/box/sniperammo
 	name = "box of 14.5mm shells"

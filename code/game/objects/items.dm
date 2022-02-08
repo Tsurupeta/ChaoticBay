@@ -330,6 +330,9 @@
 
 	SEND_SIGNAL(src, SIGNAL_ITEM_UNEQUIPPED, src, user)
 
+/obj/item/proc/dropped_on_ground(mob/user)
+	return
+
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
 	return

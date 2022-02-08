@@ -33,7 +33,7 @@
 /datum/uplink_item/item/ammo/a556
 	name = "5.56mm Magazine"
 	item_cost = 2
-	path = /obj/item/ammo_magazine/c556
+	path = /obj/item/ammo_magazine/m556
 
 /datum/uplink_item/item/ammo/a556box
 	name = "5.56mm Magazine Box"

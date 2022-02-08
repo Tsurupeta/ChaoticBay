@@ -157,13 +157,13 @@
 	desc = "A bulky pistol designed to fire self propelled rounds."
 	icon_state = "gyropistol"
 	max_shells = 8
-	caliber = "75"
+	caliber = "20mm"
 	mod_weight = 0.9
 	mod_reach = 0.65
 	mod_handy = 1.0
 	origin_tech = list(TECH_COMBAT = 3)
-	ammo_type = /obj/item/ammo_casing/a75
-	magazine_type = /obj/item/ammo_magazine/a75
+	ammo_type = /obj/item/ammo_casing/c20
+	magazine_type = /obj/item/ammo_magazine/a20
 	fire_delay = 25
 	auto_eject = 1
 	auto_eject_sound = 'sound/effects/weapons/misc/smg_empty_alarm.ogg'
@@ -279,7 +279,7 @@
 	fire_sound = 'sound/effects/weapons/gun/fire6.ogg'
 
 	var/global/list/ammo_types = list(
-		/obj/item/ammo_casing/a357              = ".357",
+		/obj/item/ammo_casing/c357              = ".357",
 		/obj/item/ammo_casing/a762              = "7.62mm",
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)

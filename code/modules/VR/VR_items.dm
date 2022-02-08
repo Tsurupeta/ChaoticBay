@@ -32,7 +32,7 @@ GLOBAL_LIST_EMPTY(thunderfield_items)
 
 /datum/thunderfield_item/sts_gun_magazine
 	name = "STS-35 magazine"
-	item = /obj/item/ammo_magazine/c556
+	item = /obj/item/ammo_magazine/m556
 	cost = 2
 
 /datum/thunderfield_item/uzi_gun
@@ -62,7 +62,7 @@ GLOBAL_LIST_EMPTY(thunderfield_items)
 
 /datum/thunderfield_item/l6_gun_magazine
 	name = "L6 magazine"
-	item = /obj/item/ammo_magazine/c556
+	item = /obj/item/ammo_magazine/m556
 	cost = 2
 
 /datum/thunderfield_item/gyro_gun
@@ -72,7 +72,7 @@ GLOBAL_LIST_EMPTY(thunderfield_items)
 
 /datum/thunderfield_item/gyro_gun_magazine
 	name = "Gyro ammo"
-	item = /obj/item/ammo_magazine/a75
+	item = /obj/item/ammo_magazine/a20
 	cost = 3
 
 /datum/thunderfield_item/toolbox

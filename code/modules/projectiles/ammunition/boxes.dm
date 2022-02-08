@@ -5,8 +5,8 @@
 	name = "speed loader (.357)"
 	desc = "A speed loader for revolvers."
 	icon_state = "38"
-	caliber = "357"
-	ammo_type = /obj/item/ammo_casing/a357
+	caliber = ".357"
+	ammo_type = /obj/item/ammo_casing/c357
 	matter = list(MATERIAL_STEEL = 1260)
 	max_ammo = 6
 	multiple_sprites = 1
@@ -16,7 +16,7 @@
 	desc = "A speed loader for revolvers."
 	icon_state = "38"
 	caliber = ".50"
-	ammo_type = /obj/item/ammo_casing/a50
+	ammo_type = /obj/item/ammo_casing/c50
 	matter = list(MATERIAL_STEEL = 1260)
 	max_ammo = 6
 	multiple_sprites = 1
@@ -132,7 +132,7 @@
 
 /obj/item/ammo_magazine/box/c9mm
 	name = "ammunition box (9mm)"
-	icon_state = "9mm"
+	icon_state = "9mm-box"
 	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(MATERIAL_STEEL = 1800)
 	caliber = "9mm"
@@ -157,7 +157,7 @@
 
 /obj/item/ammo_magazine/box/emp/a10mm
 	name = "ammunition box (10mm, haywire)"
-	ammo_type = /obj/item/ammo_casing/a10mm/emp
+	ammo_type = /obj/item/ammo_casing/c10mm/emp
 	caliber = "10mm"
 
 /obj/item/ammo_magazine/mc9mmt
@@ -184,7 +184,7 @@
 
 /obj/item/ammo_magazine/box/c45
 	name = "ammunition box (.45)"
-	icon_state = "9mm"
+	icon_state = "9mm-box"
 	origin_tech = list(TECH_COMBAT = 2)
 	caliber = ".45"
 	matter = list(MATERIAL_STEEL = 2250)
@@ -201,7 +201,7 @@
 	mag_type = MAGAZINE
 	caliber = "10mm"
 	matter = list(MATERIAL_STEEL = 1500)
-	ammo_type = /obj/item/ammo_casing/a10mm
+	ammo_type = /obj/item/ammo_casing/c10mm
 	max_ammo = 20
 	multiple_sprites = 1
 
@@ -210,10 +210,10 @@
 
 /obj/item/ammo_magazine/a762
 	name = "magazine (7.62mm)"
-	icon_state = "5.56"
+	icon_state = "m762"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
-	caliber = "a762"
+	caliber = "7.62"
 	matter = list(MATERIAL_STEEL = 1800)
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 15 //if we lived in a world where normal mags had 30 rounds, this would be a 20 round mag
@@ -233,31 +233,31 @@
 	mag_type = MAGAZINE
 	caliber = ".50"
 	matter = list(MATERIAL_STEEL = 1260)
-	ammo_type = /obj/item/ammo_casing/a50
+	ammo_type = /obj/item/ammo_casing/c50
 	max_ammo = 7
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a50/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a75
+/obj/item/ammo_magazine/a20
 	name = "ammo magazine (20mm)"
 	icon_state = "75"
 	mag_type = MAGAZINE
-	caliber = "75"
-	ammo_type = /obj/item/ammo_casing/a75
+	caliber = "20mm"
+	ammo_type = /obj/item/ammo_casing/c20
 	multiple_sprites = 1
 	max_ammo = 4
 
-/obj/item/ammo_magazine/a75/empty
+/obj/item/ammo_magazine/a20/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/box/a556
 	name = "magazine box (5.56mm)"
-	icon_state = "a556"
+	icon_state = "b556"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
-	caliber = "a556"
+	caliber = "5.56"
 	matter = list(MATERIAL_STEEL = 5400)
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 60
@@ -266,11 +266,11 @@
 /obj/item/ammo_magazine/box/a556/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/c556
+/obj/item/ammo_magazine/m556
 	name = "magazine (5.56mm)"
-	icon_state = "c762"
+	icon_state = "m556"
 	mag_type = MAGAZINE
-	caliber = "a556"
+	caliber = "5.56"
 	matter = list(MATERIAL_STEEL = 2250)
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 25
@@ -286,3 +286,170 @@
 	matter = list(MATERIAL_STEEL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/handful/s12g
+	name = "12g slugs handful"
+	desc = "A handful of 12 gauge slug shells."
+	icon_state = "h12g"
+	ammo_string = "slug"
+	max_ammo = 4
+	caliber = "12g"
+	ammo_type = /obj/item/ammo_casing/s12g
+
+/obj/item/ammo_magazine/handful/s12g/pellet
+	name = "12g buckshot handful"
+	desc = "A handful of 12 gauge 000 buck shells."
+	ammo_string = "buck"
+	ammo_type = /obj/item/ammo_casing/s12g/pellet
+
+/obj/item/ammo_magazine/handful/s12g/blank
+	name = "12g blanks handful"
+	desc = "A handful of 12 gauge blank shells."
+	ammo_string = "blank"
+	ammo_type = /obj/item/ammo_casing/s12g/blank
+
+/obj/item/ammo_magazine/handful/s12g/beanbag
+	name = "12g beanbags handful"
+	desc = "A handful of 12 gauge beanbag shells."
+	ammo_string = "bean"
+	ammo_type = /obj/item/ammo_casing/s12g/beanbag
+
+/obj/item/ammo_magazine/handful/s12g/stunshell
+	name = "12g stun shells handful"
+	desc = "A handful of 12 gauge stun shells."
+	ammo_string = "stun"
+	ammo_type = /obj/item/ammo_casing/s12g/stunshell
+
+/obj/item/ammo_magazine/handful/s12g/flash
+	name = "12g flash shells handful"
+	desc = "A handful of 12 gauge flash shells."
+	ammo_string = "flash"
+	ammo_type = /obj/item/ammo_casing/s12g/flash
+
+/obj/item/ammo_magazine/handful/s12g/emp
+	name = "12g haywire handful"
+	desc = "A handful of 12 gauge haywire shells."
+	ammo_string = "emp"
+	ammo_type = /obj/item/ammo_casing/s12g/emp
+
+/obj/item/ammo_magazine/handful/s12g/practice
+	name = "12g practice shells handful"
+	desc = "A handful of 12 gauge practice shells."
+	ammo_string = "pract"
+	ammo_type = /obj/item/ammo_casing/s12g/practice
+
+/obj/item/ammo_magazine/handful/c357
+	name = ".357 rounds handful"
+	desc = "A handful of .357 Magnum rounds."
+	icon_state = "h0357"
+	ammo_string = ""
+	max_ammo = 8
+	caliber = ".357"
+	ammo_type = /obj/item/ammo_casing/c357
+
+/obj/item/ammo_magazine/handful/c50
+	name = ".50 rounds handful"
+	desc = "A handful of .50 AE rounds."
+	icon_state = "h050ae"
+	ammo_string = ""
+	max_ammo = 6
+	caliber = ".50"
+	ammo_type = /obj/item/ammo_casing/c50
+
+/obj/item/ammo_magazine/handful/c38
+	name = ".38 rounds handful"
+	desc = "A handful of .38 special rounds."
+	icon_state = "h038"
+	ammo_string = ""
+	max_ammo = 8
+	caliber = ".38"
+	ammo_type = /obj/item/ammo_casing/c38
+
+/obj/item/ammo_magazine/handful/c38/rubber
+	name = ".38 rubber rounds handful"
+	desc = "A handful of rubber .38 special rounds."
+	ammo_string = "rubber"
+	ammo_type = /obj/item/ammo_casing/c38/rubber
+
+/obj/item/ammo_magazine/handful/c38/spec
+
+/obj/item/ammo_magazine/handful/c38/chem
+
+/obj/item/ammo_magazine/handful/c38/emp
+
+/obj/item/ammo_magazine/handful/c9mm
+	name = "9mm rounds handful"
+	desc = "A handful of 9mm rounds."
+	icon_state = "h9mm"
+	ammo_string = ""
+	max_ammo = 9
+	caliber = "9mm"
+	ammo_type = /obj/item/ammo_casing/c9mm
+
+/obj/item/ammo_magazine/handful/c9mm/flash
+	name = "9mm flash rounds handful"
+	desc = "A handful of 9mm flash rounds."
+	ammo_string = "flash"
+	ammo_type = /obj/item/ammo_casing/c9mm/flash
+
+/obj/item/ammo_magazine/handful/c9mm/rubber
+	name = "9mm rubber rounds handful"
+	desc = "A handful of 9mm rubber rounds."
+	ammo_string = "rubber"
+	ammo_type = /obj/item/ammo_casing/c9mm/rubber
+
+/obj/item/ammo_magazine/handful/c9mm/practice
+	name = "9mm practice rounds handful"
+	desc = "A handful of 9mm practice rounds."
+	ammo_string = "pract"
+	ammo_type = /obj/item/ammo_casing/c9mm/practice
+
+/obj/item/ammo_magazine/handful/c20
+
+/obj/item/ammo_magazine/handful/c44
+
+/obj/item/ammo_magazine/handful/c44/rubber
+
+/obj/item/ammo_magazine/handful/c45
+	name = ".45 rounds handful"
+	desc = "A handful of .45 ACP rounds."
+	icon_state = "h045"
+	ammo_string = ""
+	max_ammo = 9
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45
+
+/obj/item/ammo_magazine/handful/c45/rubber
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+
+/obj/item/ammo_magazine/handful/c45/practice
+	ammo_type = /obj/item/ammo_casing/c45/practice
+
+/obj/item/ammo_magazine/handful/c45/flash
+	ammo_type = /obj/item/ammo_casing/c45/flash
+
+/obj/item/ammo_magazine/handful/c45/stun
+	ammo_type = /obj/item/ammo_casing/c45/stun
+
+/obj/item/ammo_magazine/handful/c45/emp
+
+/obj/item/ammo_magazine/handful/c10mm
+	name = "10mm rounds handful"
+	desc = "A handful of 10mm auto rounds."
+	icon_state = "h10mm"
+	ammo_string = ""
+	max_ammo = 9
+	caliber = "10mm"
+	ammo_type = /obj/item/ammo_casing/c10mm
+
+/obj/item/ammo_magazine/handful/c10mm/emp
+
+/obj/item/ammo_magazine/handful/a556
+
+/obj/item/ammo_magazine/handful/a762
+
+/obj/item/ammo_magazine/handful/a762/practice
+
+/obj/item/ammo_magazine/handful/a145
+
+/obj/item/ammo_magazine/handful/a145/apds

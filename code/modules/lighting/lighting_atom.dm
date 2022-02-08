@@ -113,3 +113,7 @@ if(loc != old_loc) {\
 /obj/item/dropped()
 	. = ..()
 	update_light()
+
+/obj/item/dropped_on_ground()
+	. = ..()
+	update_light()

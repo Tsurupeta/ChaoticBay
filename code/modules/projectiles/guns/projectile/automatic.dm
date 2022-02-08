@@ -137,11 +137,11 @@
 	force = 12.5
 	mod_weight = 1.0
 	mod_reach = 0.8
-	caliber = "a556"
+	caliber = "5.56"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 5)
 	slot_flags = SLOT_BACK
-	magazine_type = /obj/item/ammo_magazine/c556
-	allowed_magazines = /obj/item/ammo_magazine/c556
+	magazine_type = /obj/item/ammo_magazine/m556
+	allowed_magazines = /obj/item/ammo_magazine/m556
 	one_hand_penalty = 3
 	wielded_item_state = "arifle-wielded"
 	fire_sound = 'sound/effects/weapons/gun/fire_556.ogg'
@@ -177,7 +177,7 @@
 	mod_weight = 1.0
 	mod_reach = 0.8
 	mod_handy = 1.0
-	caliber = "a762"
+	caliber = "7.62"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	ammo_type = /obj/item/ammo_casing/a762
 	slot_flags = SLOT_BACK
@@ -257,12 +257,12 @@
 	mod_handy = 1.0
 	slot_flags = 0
 	max_shells = 50
-	caliber = "a556"
+	caliber = "5.56"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 2)
 	slot_flags = 0 //need sprites for SLOT_BACK
 	ammo_type = /obj/item/ammo_casing/a556
 	magazine_type = /obj/item/ammo_magazine/box/a556
-	allowed_magazines = list(/obj/item/ammo_magazine/box/a556, /obj/item/ammo_magazine/c556)
+	allowed_magazines = list(/obj/item/ammo_magazine/box/a556, /obj/item/ammo_magazine/m556)
 	burst_delay = 1.5
 	burst = 5
 	move_delay = 12
@@ -285,7 +285,7 @@
 	icon_state = "l6closedmag"
 	item_state = "l6closedmag"
 	wielded_item_state = "l6closedmag-wielded"
-	magazine_type = /obj/item/ammo_magazine/c556
+	magazine_type = /obj/item/ammo_magazine/m556
 
 /obj/item/gun/projectile/automatic/l6_saw/special_check(mob/user)
 	if(cover_open)

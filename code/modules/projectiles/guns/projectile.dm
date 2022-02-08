@@ -13,7 +13,7 @@
 	screen_shake = 1
 	combustion = 1
 
-	var/caliber = "357"		//determines which casings will fit
+	var/caliber = ".357"		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
 	var/load_method = SINGLE_CASING|SPEEDLOADER //1 = Single shells, 2 = box or quick loader, 3 = magazine
 	var/obj/item/ammo_casing/chambered = null
@@ -113,13 +113,13 @@
 					return
 				if(ammo_magazine)
 					to_chat(user, "<span class='warning'>[src] already has a magazine loaded.</span>")//already a magazine here
-
 					return
 				user.remove_from_mob(AM)
-				AM.loc = src
+				AM.forceMove(src)
 				ammo_magazine = AM
 				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
-				playsound(src.loc, mag_insert_sound, rand(45, 60), FALSE)
+				if(mag_insert_sound)
+					playsound(src.loc, mag_insert_sound, rand(45, 60), FALSE)
 			if(SPEEDLOADER)
 				if(loaded.len >= max_shells)
 					to_chat(user, "<span class='warning'>[src] is full!</span>")
@@ -129,13 +129,27 @@
 					if(loaded.len >= max_shells)
 						break
 					if(C.caliber == caliber)
-						C.loc = src
+						C.forceMove(src)
 						loaded += C
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
 				if(count)
 					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src].</span>")
-					playsound(src, mag_insert_sound, rand(50, 75), FALSE)
+					if(mag_insert_sound)
+						playsound(src, mag_insert_sound, rand(50, 75), FALSE)
+			if(SINGLE_LOAD)
+				if(loaded.len >= max_shells)
+					to_chat(user, SPAN_WARNING("[src] is full!"))
+					return
+				var/obj/item/ammo_casing/C = AM.stored_ammo[1]
+				if(C)
+					C.forceMove(src)
+					loaded.Insert(1, C)
+					AM.stored_ammo.Cut(1, 2)
+					user.setClickCooldown(DEFAULT_WEAPON_COOLDOWN)
+				if(C.casing_insert_sound)
+					playsound(src, C.casing_insert_sound, rand(50, 75), FALSE)
+				AM.check_ammo()
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
@@ -146,14 +160,12 @@
 			return
 
 		user.remove_from_mob(C)
-		C.loc = src
+		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
 
-		if (istype(C, /obj/item/ammo_casing/shotgun))
-			playsound(user, SFX_SHELL_INSERT, rand(45, 60), FALSE)
-		else
-			playsound(user, SFX_BULLET_INSERT, rand(45, 60), FALSE)
+		if(C.casing_insert_sound)
+			playsound(src, C.casing_insert_sound, rand(45, 60), FALSE)
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
@@ -173,7 +185,8 @@
 			user.put_in_hands(ammo_magazine)
 			user.visible_message("[user] removes [ammo_magazine] from [src].",
 			SPAN_NOTICE("You remove [ammo_magazine] from [src]."))
-		playsound(src.loc, mag_eject_sound, 75)
+		if(mag_eject_sound)
+			playsound(src.loc, mag_eject_sound, 75)
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 	else if(loaded.len)
@@ -183,12 +196,10 @@
 			var/turf/T = get_turf(user)
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
-					C.loc = T
+					C.forceMove(T)
 					C.SpinAnimation(4, 1)
-					if(istype(C, /obj/item/ammo_casing/shotgun))
-						playsound(C, 'sound/effects/weapons/gun/shell_fall.ogg', rand(45, 60), TRUE)
-					else
-						playsound(C, SFX_CASING_DROP, rand(45, 60), TRUE)
+					if(C.casing_fall_sound)
+						playsound(C, C.casing_fall_sound, rand(45, 60), TRUE)
 					count++
 				loaded.Cut()
 			if(count)
@@ -221,7 +232,7 @@
 /obj/item/gun/projectile/afterattack(atom/A, mob/living/user)
 	..()
 	if(auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
-		ammo_magazine.loc = get_turf(src.loc)
+		ammo_magazine.forceMove(get_turf(src.loc))
 		user.visible_message(
 			"[ammo_magazine] falls out and clatters on the floor!",
 			"<span class='notice'>[ammo_magazine] falls out and clatters on the floor!</span>"
@@ -252,17 +263,19 @@
 	return bullets
 
 /obj/item/gun/projectile/proc/ejectCasing()
-	if(istype(chambered, /obj/item/ammo_casing/shotgun))
-		chambered.loc = get_turf(src)
-		chambered.SpinAnimation(4, 1)
-		playsound(chambered, 'sound/effects/weapons/gun/shell_fall.ogg', rand(45, 60), TRUE)
+	if(istype(chambered, /obj/item/ammo_casing/s12g))
+		chambered.forceMove(get_turf(src))
+		chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), 0, 1)
 	else
-		chambered.loc = get_turf(src)
+		chambered.forceMove(get_turf(src))
 		if(prob(50))
 			chambered.throw_at(get_ranged_target_turf(get_turf(src), turn(loc.dir, 270), 1), 1, 1)
 		else
 			chambered.SpinAnimation(4, 1)
-		playsound(chambered, SFX_CASING_DROP, rand(45, 60), TRUE)
+	chambered.pixel_x = rand(-randpixel, randpixel)
+	chambered.pixel_y = rand(-randpixel, randpixel)
+	if(chambered.casing_fall_sound)
+		playsound(chambered, chambered.casing_fall_sound, rand(45, 60), TRUE)
 
 /* Unneeded -- so far.
 //in case the weapon has firemodes and can't unload using attack_hand()
