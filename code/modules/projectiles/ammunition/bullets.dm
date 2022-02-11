@@ -47,7 +47,7 @@
 
 /obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
-	icon_state = "9mm-1"
+	inv_icon = "9mm-1"
 	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
 
@@ -78,7 +78,7 @@
 /obj/item/ammo_casing/c45
 	desc = "A .45 bullet casing."
 	caliber = ".45"
-	icon_state = "045-1"
+	inv_icon = "045-1"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 
 /obj/item/ammo_casing/c45/practice
@@ -115,7 +115,8 @@
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
 	desc = "A 12 gauge shell."
-	icon_state = "12g-buck-1"
+	inv_icon = "12g-buck"
+	icon_state = "gshell"
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(MATERIAL_STEEL = 360)
@@ -173,6 +174,7 @@
 	caliber = "a556"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556
 	icon_state = "rifle-casing"
+	inv_icon = "556"
 	spent_icon = "rifle-casing-spent"
 
 /obj/item/ammo_casing/a145
@@ -193,7 +195,8 @@
 	desc = "A 7.62mm bullet casing."
 	caliber = "a762"
 	projectile_type = /obj/item/projectile/bullet/rifle/a762
-	icon_state = "762-1"
+	inv_icon = "762"
+	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 
 /obj/item/ammo_casing/a762/practice

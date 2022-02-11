@@ -14,6 +14,7 @@
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "pistol-casing-spent"
+	var/inv_icon = ""
 
 /obj/item/ammo_casing/Initialize()
 	. = ..()
@@ -76,9 +77,28 @@
 	else
 		..()
 
+
+/obj/item/ammo_casing/dropped(mob/user)
+	. = ..()
+	update_icon()
+
+/obj/item/ammo_casing/on_enter_storage(obj/item/storage/S)
+	. = ..()
+	update_icon()
+
+/obj/item/ammo_casing/equipped()
+	. = ..()
+	update_icon()
+
 /obj/item/ammo_casing/update_icon()
 	if(spent_icon && !BB)
 		icon_state = spent_icon
+		return
+	if(!isturf(loc))
+		icon_state = inv_icon
+	else
+		icon_state = initial(icon_state)
+
 
 /obj/item/ammo_casing/_examine_text(mob/user)
 	. = ..()
