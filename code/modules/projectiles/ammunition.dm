@@ -15,6 +15,7 @@
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "pistol-casing-spent"
 	var/inv_icon = ""
+	var/ammo_stack = null
 
 /obj/item/ammo_casing/Initialize()
 	. = ..()
@@ -63,7 +64,6 @@
 		if(!BB)
 			to_chat(user, "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>")
 			return
-
 		var/tmp_label = ""
 		var/label_text = sanitizeSafe(input(user, "Inscribe some text into \the [initial(BB.name)]","Inscription",tmp_label), MAX_NAME_LEN)
 		if(length(label_text) > 20)
@@ -74,6 +74,32 @@
 		else
 			to_chat(user, "<span class='notice'>You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>")
 			BB.SetName("[initial(BB.name)] (\"[label_text]\")")
+	if(istype(W, /obj/item/ammo_casing) && ammo_stack)
+		if(src.type == W.type)
+			var/obj/item/ammo_casing/C = W
+			if(C.BB && src.BB && ammo_stack)
+				var/obj/item/ammo_magazine/handful/H = new ammo_stack(src.loc)
+				user.remove_from_mob(C)
+				C.forceMove(H)
+				H.stored_ammo.Add(C)
+				src.forceMove(H)
+				H.stored_ammo.Add(src)
+				user.put_in_hands(H)
+				H.update_icon()
+
+	if(istype(W, /obj/item/ammo_magazine))
+		var/obj/item/ammo_magazine/A = W
+		if(caliber == A.caliber && src.BB)
+			if(A.stored_ammo.len >= A.max_ammo)
+				to_chat(user, "<span class='warning'>[A] is full!</span>")
+				return
+			else
+				if(src.loc == user)
+					user.remove_from_mob(src)
+				forceMove(A)
+				A.stored_ammo.Add(src)
+				A.update_icon()
+				//user.visible_message("<span class='notice'>\The [user] adds \a [src] to [A].</span>", "<span class='notice'>You add \a [src] to [A].</span>")
 	else
 		..()
 
@@ -125,9 +151,11 @@
 	w_class = ITEM_SIZE_SMALL
 	throw_range = 10
 
+	var/bullet_insert_sound = SFX_BULLET_INSERT
+
 	var/list/stored_ammo = list()
 	var/mag_type = SPEEDLOADER //ammo_magazines can only be used with compatible guns. This is not a bitflag, the load_method var on guns is.
-	var/caliber = "357"
+	var/caliber = ".357"
 	var/max_ammo = 7
 
 	var/ammo_type = /obj/item/ammo_casing //ammo type that is initially loaded
@@ -166,8 +194,8 @@
 		user.remove_from_mob(C)
 		C.forceMove(src)
 		stored_ammo.Add(C)
-
-		playsound(user, "bullet_insert", rand(45, 60), FALSE)
+		if(bullet_insert_sound)
+			playsound(user, bullet_insert_sound, rand(45, 60), FALSE)
 
 		update_icon()
 	else ..()
@@ -183,7 +211,6 @@
 	stored_ammo.Cut()
 	update_icon()
 
-
 /obj/item/ammo_magazine/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
 		if(!stored_ammo.len)
@@ -193,7 +220,8 @@
 			stored_ammo-=C
 			user.put_in_hands(C)
 			user.visible_message("\The [user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
-			playsound(user, "bullet_insert", rand(45, 60), FALSE)
+			if(bullet_insert_sound)
+				playsound(user, bullet_insert_sound, rand(45, 60), FALSE)
 			update_icon()
 	else
 		..()
@@ -238,3 +266,33 @@
 
 	magazine_icondata_keys["[M.type]"] = icon_keys
 	magazine_icondata_states["[M.type]"] = ammo_states
+
+/obj/item/ammo_magazine/handful
+	name = "generic handful"
+	desc = "A handful of rounds."
+	icon_state = "762"
+	slot_flags = 0
+	matter = list()
+	force = 0
+	throwforce = 0
+	var/ammo_string = ""
+	max_ammo = 1
+	stored_ammo = list()
+	mag_type = SINGLE_LOAD
+	caliber = "7.62"
+	ammo_type = /obj/item/ammo_casing/a762
+	initial_ammo = null
+	bullet_insert_sound = null
+
+/obj/item/ammo_magazine/handful/New()
+	..()
+	update_icon()
+
+/obj/item/ammo_magazine/handful/update_icon()
+	if(!stored_ammo.len)
+		qdel(src)
+		return
+	icon_state = "[initial(icon_state)][ammo_string]-[stored_ammo.len]"
+
+/obj/item/ammo_magazine/attack_self(mob/user)
+	return

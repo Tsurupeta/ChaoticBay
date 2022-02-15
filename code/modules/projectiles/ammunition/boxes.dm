@@ -5,7 +5,7 @@
 	name = "speed loader (.357)"
 	desc = "A speed loader for revolvers."
 	icon_state = "38"
-	caliber = "357"
+	caliber = ".357"
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(MATERIAL_STEEL = 1260)
 	max_ammo = 6
@@ -213,7 +213,7 @@
 	icon_state = "5.56"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
-	caliber = "a762"
+	caliber = "7.62"
 	matter = list(MATERIAL_STEEL = 1800)
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 15 //if we lived in a world where normal mags had 30 rounds, this would be a 20 round mag
@@ -257,7 +257,7 @@
 	icon_state = "a556"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
-	caliber = "a556"
+	caliber = "5.56"
 	matter = list(MATERIAL_STEEL = 5400)
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 60
@@ -270,7 +270,7 @@
 	name = "magazine (5.56mm)"
 	icon_state = "c762"
 	mag_type = MAGAZINE
-	caliber = "a556"
+	caliber = "5.56"
 	matter = list(MATERIAL_STEEL = 2250)
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 25
@@ -286,3 +286,21 @@
 	matter = list(MATERIAL_STEEL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/handful/s12g/pellet
+	name = "12g buckshot handful"
+	desc = "A handful of 12 gauge 000 buck rounds."
+	icon_state = "12g"
+	ammo_string = "buck"
+	max_ammo = 5
+	caliber = "12g"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+
+/obj/item/ammo_magazine/handful/a357
+	name = "\improper "
+	desc = "A handful of 12 gauge 000 buck rounds."
+	icon_state = "12g"
+	ammo_string = "buck"
+	max_ammo = 5
+	caliber = "12g"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet

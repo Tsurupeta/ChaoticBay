@@ -13,7 +13,7 @@
 	screen_shake = 1
 	combustion = 1
 
-	var/caliber = "357"		//determines which casings will fit
+	var/caliber = ".357"		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
 	var/load_method = SINGLE_CASING|SPEEDLOADER //1 = Single shells, 2 = box or quick loader, 3 = magazine
 	var/obj/item/ammo_casing/chambered = null
@@ -32,6 +32,7 @@
 	var/auto_eject_sound = null
 	var/mag_insert_sound = SFX_MAGAZINE_INSERT
 	var/mag_eject_sound = 'sound/weapons/empty.ogg'
+	var/casing_insert_sound = SFX_BULLET_INSERT
 
 	far_fire_sound = SFX_FAR_FIRE
 
@@ -113,13 +114,13 @@
 					return
 				if(ammo_magazine)
 					to_chat(user, "<span class='warning'>[src] already has a magazine loaded.</span>")//already a magazine here
-
 					return
 				user.remove_from_mob(AM)
 				AM.loc = src
 				ammo_magazine = AM
 				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
-				playsound(src.loc, mag_insert_sound, rand(45, 60), FALSE)
+				if(mag_insert_sound)
+					playsound(src.loc, mag_insert_sound, rand(45, 60), FALSE)
 			if(SPEEDLOADER)
 				if(loaded.len >= max_shells)
 					to_chat(user, "<span class='warning'>[src] is full!</span>")
@@ -135,7 +136,20 @@
 						count++
 				if(count)
 					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src].</span>")
-					playsound(src, mag_insert_sound, rand(50, 75), FALSE)
+					if(mag_insert_sound)
+						playsound(src, mag_insert_sound, rand(50, 75), FALSE)
+			if(SINGLE_LOAD)
+				if(loaded.len >= max_shells)
+					to_chat(user, "<span class='warning'>[src] is full!</span>")
+					return
+				var/obj/item/ammo_casing/C = AM.stored_ammo[1]
+				if(C)
+					C.loc = src
+					loaded.Insert(1, C)
+					AM.stored_ammo.Cut(1, 2)
+					user.setClickCooldown(FAST_WEAPON_COOLDOWN)
+				if(casing_insert_sound)
+					playsound(src, casing_insert_sound, rand(50, 75), FALSE)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A

@@ -1,7 +1,8 @@
 /obj/item/ammo_casing/a357
 	desc = "A .357 bullet casing."
-	caliber = "357"
+	caliber = ".357"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong/revolver
+	ammo_stack = /obj/item/ammo_magazine/handful/a357
 
 /obj/item/ammo_casing/a50
 	desc = "A .50AE bullet casing."
@@ -108,14 +109,14 @@
 	desc = "A 12 gauge slug."
 	icon_state = "slshell"
 	spent_icon = "slshell-spent"
-	caliber = "shotgun"
+	caliber = "12g"
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(MATERIAL_STEEL = 360)
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
 	desc = "A 12 gauge shell."
-	inv_icon = "12g-buck"
+	inv_icon = "12gbuck"
 	icon_state = "gshell"
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
@@ -171,7 +172,7 @@
 
 /obj/item/ammo_casing/a556
 	desc = "A 5.56mm bullet casing."
-	caliber = "a556"
+	caliber = "5.56"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556
 	icon_state = "rifle-casing"
 	inv_icon = "556"
@@ -193,7 +194,7 @@
 
 /obj/item/ammo_casing/a762
 	desc = "A 7.62mm bullet casing."
-	caliber = "a762"
+	caliber = "7.62"
 	projectile_type = /obj/item/projectile/bullet/rifle/a762
 	inv_icon = "762"
 	icon_state = "rifle-casing"
