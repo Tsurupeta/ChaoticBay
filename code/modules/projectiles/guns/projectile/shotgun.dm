@@ -1,6 +1,3 @@
-/obj/item/gun/projectile/shotgun
-	casing_insert_sound = SFX_SHELL_INSERT
-
 /obj/item/gun/projectile/shotgun/pump
 	name = "shotgun"
 	desc = "The mass-produced W-T Remmington 29x shotgun is a favourite of police and security forces on many worlds. Useful for sweeping alleys."
@@ -18,7 +15,7 @@
 	caliber = "12g"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	load_method = SINGLE_CASING
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	ammo_type = /obj/item/ammo_casing/s12g/beanbag
 	handle_casings = HOLD_CASINGS
 	one_hand_penalty = 2
 	var/recentpump = 0 // to prevent spammage
@@ -59,13 +56,13 @@
 	wielded_item_state = "cshotgun-wielded"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
-	ammo_type = /obj/item/ammo_casing/shotgun
+	ammo_type = /obj/item/ammo_casing/s12g
 	one_hand_penalty = 3 //a little heavier than the regular shotgun
 
 /obj/item/gun/projectile/shotgun/pump/combat/hos
 	name = "KS-40"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders. This one emmits LAW."
-	ammo_type = /obj/item/ammo_casing/shotgun
+	ammo_type = /obj/item/ammo_casing/s12g
 
 /obj/item/gun/projectile/shotgun/pump/boomstick
 	name = "makeshift shotgun"
@@ -175,7 +172,7 @@
 	slot_flags = SLOT_BACK
 	caliber = "12g"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	ammo_type = /obj/item/ammo_casing/s12g/beanbag
 	one_hand_penalty = 2
 
 	burst_delay = 0
@@ -187,12 +184,12 @@
 	fire_sound = 'sound/effects/weapons/gun/fire_shotgun2.ogg'
 
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	ammo_type = /obj/item/ammo_casing/s12g/pellet
 
 /obj/item/gun/projectile/shotgun/doublebarrel/flare
 	name = "signal shotgun"
 	desc = "A double-barreled shotgun meant to fire signal flash shells."
-	ammo_type = /obj/item/ammo_casing/shotgun/flash
+	ammo_type = /obj/item/ammo_casing/s12g/flash
 
 /obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(user, allow_dump)
 	..(user, allow_dump=1)
@@ -232,7 +229,7 @@
 	item_state = "sawnshotgun"
 	wielded_item_state = null // It's basically a 12 Cal pistol
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	ammo_type = /obj/item/ammo_casing/s12g/pellet
 	w_class = ITEM_SIZE_NORMAL
 	force = 8.5
 	mod_weight = 0.7

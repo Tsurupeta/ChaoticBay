@@ -240,16 +240,16 @@
 /obj/item/ammo_magazine/a50/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a75
+/obj/item/ammo_magazine/a20
 	name = "ammo magazine (20mm)"
 	icon_state = "75"
 	mag_type = MAGAZINE
-	caliber = "75"
-	ammo_type = /obj/item/ammo_casing/a75
+	caliber = "20mm"
+	ammo_type = /obj/item/ammo_casing/a20
 	multiple_sprites = 1
 	max_ammo = 4
 
-/obj/item/ammo_magazine/a75/empty
+/obj/item/ammo_magazine/a20/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/box/a556
@@ -287,20 +287,137 @@
 	max_ammo = 7
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/handful/s12g
+	name = "12g slugs handful"
+	desc = "A handful of 12 gauge slug shells."
+	icon_state = "12g"
+	ammo_string = "slug"
+	max_ammo = 4
+	caliber = "12g"
+	ammo_type = /obj/item/ammo_casing/s12g
+
 /obj/item/ammo_magazine/handful/s12g/pellet
 	name = "12g buckshot handful"
-	desc = "A handful of 12 gauge 000 buck rounds."
-	icon_state = "12g"
+	desc = "A handful of 12 gauge 000 buck shells."
 	ammo_string = "buck"
-	max_ammo = 5
-	caliber = "12g"
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	ammo_type = /obj/item/ammo_casing/s12g/pellet
+
+/obj/item/ammo_magazine/handful/s12g/blank
+	name = "12g blanks handful"
+	desc = "A handful of 12 gauge blank shells."
+	ammo_string = "blank"
+	ammo_type = /obj/item/ammo_casing/s12g/blank
+
+/obj/item/ammo_magazine/handful/s12g/beanbag
+	name = "12g beanbags handful"
+	desc = "A handful of 12 gauge beanbag shells."
+	ammo_string = "beanbag"
+	ammo_type = /obj/item/ammo_casing/s12g/beanbag
+
+/obj/item/ammo_magazine/handful/s12g/stunshell
+	name = "12g stun shells handful"
+	desc = "A handful of 12 gauge stun shells."
+	ammo_string = "stun"
+	ammo_type = /obj/item/ammo_casing/s12g/stunshell
+
+/obj/item/ammo_magazine/handful/s12g/flash
+	name = "12g flash shells handful"
+	desc = "A handful of 12 gauge flash shells."
+	ammo_string = "flash"
+	ammo_type = /obj/item/ammo_casing/s12g/flash
+
+/obj/item/ammo_magazine/handful/s12g/emp
+	name = "12g haywire handful"
+	desc = "A handful of 12 gauge haywire shells."
+	ammo_string = "emp"
+	ammo_type = /obj/item/ammo_casing/s12g/emp
+
+/obj/item/ammo_magazine/handful/s12g/practice
+	name = "12g practice shells handful"
+	desc = "A handful of 12 gauge practice shells."
+	ammo_string = "emp"
+	ammo_type = /obj/item/ammo_casing/s12g/practice
 
 /obj/item/ammo_magazine/handful/a357
-	name = "\improper "
-	desc = "A handful of 12 gauge 000 buck rounds."
-	icon_state = "12g"
-	ammo_string = "buck"
+	name = ".357 rounds handful"
+	desc = "A handful of .357 rounds."
+	icon_state = "357"
+	ammo_string = ""
 	max_ammo = 5
-	caliber = "12g"
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	caliber = ".357"
+	ammo_type = /obj/item/ammo_casing/a357
+
+/obj/item/ammo_magazine/handful/a50
+	name = ".50 rounds handful"
+	desc = "A handful of .50 AE rounds."
+	icon_state = "357"
+	ammo_string = ""
+	max_ammo = 5
+	caliber = ".357"
+	ammo_type = /obj/item/ammo_casing/a50
+
+/obj/item/ammo_magazine/handful/c38
+	name = ".38 rounds handful"
+	desc = "A handful of .38 rounds."
+	icon_state = "357"
+	ammo_string = ""
+	max_ammo = 5
+	caliber = ".357"
+	ammo_type = /obj/item/ammo_casing/c38
+
+/obj/item/ammo_magazine/handful/c38/rubber
+
+/obj/item/ammo_magazine/handful/c38/spec
+
+/obj/item/ammo_magazine/handful/c38/chem
+
+/obj/item/ammo_magazine/handful/c38/emp
+
+/obj/item/ammo_magazine/handful/c9mm
+
+/obj/item/ammo_magazine/handful/c9mm/flash
+
+/obj/item/ammo_magazine/handful/c9mm/rubber
+
+/obj/item/ammo_magazine/handful/c9mm/practice
+
+/obj/item/ammo_magazine/handful/c44
+
+/obj/item/ammo_magazine/handful/c44/rubber
+
+/obj/item/ammo_magazine/handful/c45
+	name = ".45 rounds handful"
+	desc = "A handful of .45 ACP rounds."
+	icon_state = "045"
+	ammo_string = ""
+	max_ammo = 7
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45
+
+/obj/item/ammo_magazine/handful/c45/rubber
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+
+/obj/item/ammo_magazine/handful/c45/practice
+	ammo_type = /obj/item/ammo_casing/c45/practice
+
+/obj/item/ammo_magazine/handful/c45/flash
+	ammo_type = /obj/item/ammo_casing/c45/flash
+
+/obj/item/ammo_magazine/handful/c45/stun
+	ammo_type = /obj/item/ammo_casing/c45/stun
+
+/obj/item/ammo_magazine/handful/c45/emp
+
+/obj/item/ammo_magazine/handful/a10mm
+
+/obj/item/ammo_magazine/handful/a10mm/emp
+
+/obj/item/ammo_magazine/handful/a556
+
+/obj/item/ammo_magazine/handful/a762
+
+/obj/item/ammo_magazine/handful/a762/practice
+
+/obj/item/ammo_magazine/handful/a145
+
+/obj/item/ammo_magazine/handful/a145/apds

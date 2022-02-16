@@ -32,7 +32,6 @@
 	var/auto_eject_sound = null
 	var/mag_insert_sound = SFX_MAGAZINE_INSERT
 	var/mag_eject_sound = 'sound/weapons/empty.ogg'
-	var/casing_insert_sound = SFX_BULLET_INSERT
 
 	far_fire_sound = SFX_FAR_FIRE
 
@@ -148,8 +147,9 @@
 					loaded.Insert(1, C)
 					AM.stored_ammo.Cut(1, 2)
 					user.setClickCooldown(FAST_WEAPON_COOLDOWN)
-				if(casing_insert_sound)
-					playsound(src, casing_insert_sound, rand(50, 75), FALSE)
+				if(C.casing_insert_sound)
+					playsound(src, C.casing_insert_sound, rand(50, 75), FALSE)
+				AM.check_empty()
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
@@ -164,7 +164,7 @@
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
 
-		if (istype(C, /obj/item/ammo_casing/shotgun))
+		if (istype(C, /obj/item/ammo_casing/s12g))
 			playsound(user, SFX_SHELL_INSERT, rand(45, 60), FALSE)
 		else
 			playsound(user, SFX_BULLET_INSERT, rand(45, 60), FALSE)
@@ -199,10 +199,8 @@
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.loc = T
 					C.SpinAnimation(4, 1)
-					if(istype(C, /obj/item/ammo_casing/shotgun))
-						playsound(C, 'sound/effects/weapons/gun/shell_fall.ogg', rand(45, 60), TRUE)
-					else
-						playsound(C, SFX_CASING_DROP, rand(45, 60), TRUE)
+					if(C.casing_fall_sound)
+						playsound(C, C.casing_fall_sound, rand(45, 60), TRUE)
 					count++
 				loaded.Cut()
 			if(count)
@@ -266,9 +264,9 @@
 	return bullets
 
 /obj/item/gun/projectile/proc/ejectCasing()
-	if(istype(chambered, /obj/item/ammo_casing/shotgun))
+	if(istype(chambered, /obj/item/ammo_casing/s12g))
 		chambered.loc = get_turf(src)
-		chambered.SpinAnimation(4, 1)
+		chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), 0, 1)
 		playsound(chambered, 'sound/effects/weapons/gun/shell_fall.ogg', rand(45, 60), TRUE)
 	else
 		chambered.loc = get_turf(src)

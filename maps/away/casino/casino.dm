@@ -104,7 +104,7 @@
 	pixel_x = rand(-10, 10)
 	pixel_y = rand(-10, 10)
 
-/obj/item/ammo_casing/shotgun/pellet/used/Initialize()
+/obj/item/ammo_casing/s12g/pellet/used/Initialize()
 	. = ..()
 	expend()
 	pixel_x = rand(-10, 10)

@@ -38,7 +38,7 @@
 								/obj/item/storage/box/sniperammo					= TRADER_ALL,
 								/obj/item/ammo_magazine/a10mm/empty						= TRADER_BLACKLIST,
 								/obj/item/ammo_magazine/a762/empty						= TRADER_BLACKLIST,
-								/obj/item/ammo_magazine/a75/empty						= TRADER_BLACKLIST,
+								/obj/item/ammo_magazine/a20/empty						= TRADER_BLACKLIST,
 								/obj/item/ammo_magazine/c45m/empty						= TRADER_BLACKLIST,
 								/obj/item/ammo_magazine/mc9mm/empty						= TRADER_BLACKLIST,
 								/obj/item/ammo_magazine/box/c9mm/empty					= TRADER_BLACKLIST,
@@ -115,4 +115,3 @@
 								/obj/item/gun/energy/laser/dogan                                 = TRADER_THIS_TYPE,
 								/obj/item/gun/projectile/automatic/machine_pistol/mini_uzi/usi   = TRADER_THIS_TYPE,
 								/obj/item/clothing/accessory/holster                                    = TRADER_ALL)
-

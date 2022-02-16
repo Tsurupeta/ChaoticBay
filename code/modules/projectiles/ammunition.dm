@@ -6,7 +6,7 @@
 	randpixel = 10
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT | SLOT_EARS
-	throwforce = 1
+	throwforce = 0
 	w_class = ITEM_SIZE_TINY
 
 	var/leaves_residue = 1
@@ -16,6 +16,8 @@
 	var/spent_icon = "pistol-casing-spent"
 	var/inv_icon = ""
 	var/ammo_stack = null
+	var/casing_fall_sound = SFX_CASING_DROP
+	var/casing_insert_sound = SFX_BULLET_INSERT
 
 /obj/item/ammo_casing/Initialize()
 	. = ..()
@@ -74,35 +76,44 @@
 		else
 			to_chat(user, "<span class='notice'>You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>")
 			BB.SetName("[initial(BB.name)] (\"[label_text]\")")
-	if(istype(W, /obj/item/ammo_casing) && ammo_stack)
+	if(istype(W, /obj/item/ammo_casing))
 		if(src.type == W.type)
 			var/obj/item/ammo_casing/C = W
 			if(C.BB && src.BB && ammo_stack)
-				var/obj/item/ammo_magazine/handful/H = new ammo_stack(src.loc)
+				var/obj/item/ammo_magazine/handful/H = new ammo_stack(C.loc)
 				user.remove_from_mob(C)
 				C.forceMove(H)
 				H.stored_ammo.Add(C)
-				src.forceMove(H)
+				if(src.loc == user)
+					user.remove_from_mob(src)
+				if(istype(src.loc, /obj/item/storage))
+					var/obj/item/storage/S = src.loc
+					S.remove_from_storage(src)
+				forceMove(H)
 				H.stored_ammo.Add(src)
-				user.put_in_hands(H)
 				H.update_icon()
-
-	if(istype(W, /obj/item/ammo_magazine))
-		var/obj/item/ammo_magazine/A = W
-		if(caliber == A.caliber && src.BB)
+				user.put_in_hands(H)
+	if(istype(W, /obj/item/ammo_magazine/handful))
+		var/obj/item/ammo_magazine/handful/A = W
+		if(caliber == A.caliber && src.type == A.ammo_type && src.BB)
 			if(A.stored_ammo.len >= A.max_ammo)
 				to_chat(user, "<span class='warning'>[A] is full!</span>")
 				return
 			else
 				if(src.loc == user)
 					user.remove_from_mob(src)
+				if(istype(src.loc, /obj/item/storage))
+					var/obj/item/storage/S = src.loc
+					S.remove_from_storage(src)
 				forceMove(A)
 				A.stored_ammo.Add(src)
 				A.update_icon()
-				//user.visible_message("<span class='notice'>\The [user] adds \a [src] to [A].</span>", "<span class='notice'>You add \a [src] to [A].</span>")
 	else
 		..()
 
+/obj/item/ammo_casing/Initialize()
+	. = ..()
+	update_icon()
 
 /obj/item/ammo_casing/dropped(mob/user)
 	. = ..()
@@ -196,7 +207,6 @@
 		stored_ammo.Add(C)
 		if(bullet_insert_sound)
 			playsound(user, bullet_insert_sound, rand(45, 60), FALSE)
-
 		update_icon()
 	else ..()
 
@@ -242,6 +252,9 @@
 	. = ..()
 	. += "\nThere [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!"
 
+/obj/item/ammo_magazine/proc/check_empty()
+	return
+
 //magazine icon state caching
 /var/global/list/magazine_icondata_keys = list()
 /var/global/list/magazine_icondata_states = list()
@@ -271,6 +284,7 @@
 	name = "generic handful"
 	desc = "A handful of rounds."
 	icon_state = "762"
+	item_state = null
 	slot_flags = 0
 	matter = list()
 	force = 0
@@ -281,7 +295,7 @@
 	mag_type = SINGLE_LOAD
 	caliber = "7.62"
 	ammo_type = /obj/item/ammo_casing/a762
-	initial_ammo = null
+	initial_ammo = 0
 	bullet_insert_sound = null
 
 /obj/item/ammo_magazine/handful/New()
@@ -289,10 +303,16 @@
 	update_icon()
 
 /obj/item/ammo_magazine/handful/update_icon()
-	if(!stored_ammo.len)
-		qdel(src)
-		return
 	icon_state = "[initial(icon_state)][ammo_string]-[stored_ammo.len]"
 
-/obj/item/ammo_magazine/attack_self(mob/user)
+/obj/item/ammo_magazine/handful/attack_self(mob/user)
 	return
+
+/obj/item/ammo_magazine/handful/check_empty()
+	if(!stored_ammo.len)
+		qdel(src)
+	return
+
+/obj/item/ammo_magazine/handful/attack_hand()
+	..()
+	check_empty()
