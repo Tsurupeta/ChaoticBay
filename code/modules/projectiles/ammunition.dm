@@ -152,7 +152,7 @@
 /obj/item/ammo_magazine
 	name = "magazine"
 	desc = "A magazine for some kind of gun."
-	icon_state = "357"
+	icon_state = "357-box"
 	icon = 'icons/obj/ammo.dmi'
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
