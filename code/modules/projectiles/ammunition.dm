@@ -111,10 +111,6 @@
 	else
 		..()
 
-/obj/item/ammo_casing/Initialize()
-	. = ..()
-	update_icon()
-
 /obj/item/ammo_casing/dropped(mob/user)
 	. = ..()
 	update_icon()
