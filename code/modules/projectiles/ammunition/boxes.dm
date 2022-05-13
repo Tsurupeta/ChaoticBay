@@ -311,7 +311,7 @@
 /obj/item/ammo_magazine/handful/s12g/beanbag
 	name = "12g beanbags handful"
 	desc = "A handful of 12 gauge beanbag shells."
-	ammo_string = "beanbag"
+	ammo_string = "bean"
 	ammo_type = /obj/item/ammo_casing/s12g/beanbag
 
 /obj/item/ammo_magazine/handful/s12g/stunshell

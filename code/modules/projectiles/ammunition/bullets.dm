@@ -146,6 +146,7 @@
 /obj/item/ammo_casing/s12g/blank
 	name = "shotgun shell"
 	desc = "A blank shell."
+	inv_icon = "12gblank"
 	icon_state = "blshell"
 	spent_icon = "blshell-spent"
 	projectile_type = /obj/item/projectile/bullet/blank
@@ -164,6 +165,7 @@
 /obj/item/ammo_casing/s12g/beanbag
 	name = "beanbag shell"
 	desc = "A beanbag shell."
+	inv_icon = "12gbean"
 	icon_state = "bshell"
 	spent_icon = "bshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/beanbag
