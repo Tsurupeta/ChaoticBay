@@ -125,6 +125,7 @@
 	name = "shotgun slug"
 	desc = "A 12 gauge slug."
 	icon_state = "slshell"
+	inv_icon = "12gslug"
 	spent_icon = "slshell-spent"
 	caliber = "12g"
 	projectile_type = /obj/item/projectile/bullet/shotgun
@@ -136,8 +137,8 @@
 /obj/item/ammo_casing/s12g/pellet
 	name = "shotgun shell"
 	desc = "A 12 gauge shell."
-	inv_icon = "12gbuck"
 	icon_state = "gshell"
+	inv_icon = "12gbuck"
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(MATERIAL_STEEL = 360)
@@ -146,8 +147,8 @@
 /obj/item/ammo_casing/s12g/blank
 	name = "shotgun shell"
 	desc = "A blank shell."
-	inv_icon = "12gblank"
 	icon_state = "blshell"
+	inv_icon = "12gblank"
 	spent_icon = "blshell-spent"
 	projectile_type = /obj/item/projectile/bullet/blank
 	matter = list(MATERIAL_STEEL = 90)
@@ -157,6 +158,7 @@
 	name = "shotgun shell"
 	desc = "A practice shell."
 	icon_state = "pshell"
+	inv_icon = "12gpract"
 	spent_icon = "pshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
 	matter = list(MATERIAL_STEEL = 90)
@@ -165,8 +167,8 @@
 /obj/item/ammo_casing/s12g/beanbag
 	name = "beanbag shell"
 	desc = "A beanbag shell."
-	inv_icon = "12gbean"
 	icon_state = "bshell"
+	inv_icon = "12gbean"
 	spent_icon = "bshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/beanbag
 	matter = list(MATERIAL_STEEL = 180)
@@ -178,6 +180,7 @@
 	name = "stun shell"
 	desc = "A 12 gauge taser cartridge."
 	icon_state = "stunshell"
+	inv_icon = "12gstun"
 	spent_icon = "stunshell-spent"
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
 	leaves_residue = 0
@@ -193,6 +196,7 @@
 	name = "flash shell"
 	desc = "A chemical shell used to signal distress or provide illumination."
 	icon_state = "fshell"
+	inv_icon = "12gflash"
 	spent_icon = "fshell-spent"
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(MATERIAL_STEEL = 90, MATERIAL_GLASS = 90)
