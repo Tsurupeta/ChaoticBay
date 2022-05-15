@@ -64,17 +64,17 @@
 /obj/item/ammo_casing/attackby(obj/item/W as obj, mob/user as mob)
 	if(isScrewdriver(W))
 		if(!BB)
-			to_chat(user, "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>")
+			to_chat(user, SPAN_NOTICE("There is no bullet in the casing to inscribe anything into.</span>"))
 			return
 		var/tmp_label = ""
 		var/label_text = sanitizeSafe(input(user, "Inscribe some text into \the [initial(BB.name)]","Inscription",tmp_label), MAX_NAME_LEN)
 		if(length(label_text) > 20)
-			to_chat(user, "<span class='warning'>The inscription can be at most 20 characters long.</span>")
+			to_chat(user, SPAN_WARNING("The inscription can be at most 20 characters long.</span>"))
 		else if(!label_text)
-			to_chat(user, "<span class='notice'>You scratch the inscription off of [initial(BB)].</span>")
+			to_chat(user, SPAN_NOTICE("You scratch the inscription off of [initial(BB)].</span>"))
 			BB.SetName(initial(BB.name))
 		else
-			to_chat(user, "<span class='notice'>You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>")
+			to_chat(user, SPAN_NOTICE("You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>"))
 			BB.SetName("[initial(BB.name)] (\"[label_text]\")")
 	if(istype(W, /obj/item/ammo_casing))
 		if(src.type == W.type)
@@ -97,7 +97,7 @@
 		var/obj/item/ammo_magazine/handful/A = W
 		if(caliber == A.caliber && src.type == A.ammo_type && src.BB)
 			if(A.stored_ammo.len >= A.max_ammo)
-				to_chat(user, "<span class='warning'>[A] is full!</span>")
+				to_chat(user, SPAN_WARNING("[A] is full!</span>"))
 				return
 			else
 				if(src.loc == user)
@@ -193,10 +193,10 @@
 	if(istype(W, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = W
 		if(C.caliber != caliber)
-			to_chat(user, "<span class='warning'>[C] does not fit into [src].</span>")
+			to_chat(user, SPAN_WARNING("[C] does not fit into [src].</span>"))
 			return
 		if(stored_ammo.len >= max_ammo)
-			to_chat(user, "<span class='warning'>[src] is full!</span>")
+			to_chat(user, SPAN_WARNING("[src] is full!</span>"))
 			return
 		user.remove_from_mob(C)
 		C.forceMove(src)
@@ -204,13 +204,33 @@
 		if(bullet_insert_sound)
 			playsound(user, bullet_insert_sound, rand(45, 60), FALSE)
 		update_icon()
+	if(istype(W, /obj/item/ammo_magazine/handful))
+		var/obj/item/ammo_magazine/handful/A = W
+		if(caliber == A.caliber)
+			if(!A.stored_ammo.len)
+				to_chat(user, SPAN_WARNING("[A] is empty!</span>"))
+				return
+			else if(stored_ammo.len >= max_ammo)
+				to_chat(user, SPAN_WARNING("[src] is full!</span>"))
+				return
+			else
+				var/obj/item/ammo_casing/C = A.stored_ammo[A.stored_ammo.len]
+				A.stored_ammo-=C
+				C.forceMove(src)
+				stored_ammo.Add(C)
+				update_icon()
+				A.update_icon()
+				if(bullet_insert_sound)
+					playsound(user, bullet_insert_sound, rand(45, 60), FALSE)
+				A.check_empty()
+				user.setClickCooldown(DEFAULT_WEAPON_COOLDOWN)
 	else ..()
 
 /obj/item/ammo_magazine/attack_self(mob/user)
 	if(!stored_ammo.len)
-		to_chat(user, "<span class='notice'>[src] is already empty!</span>")
+		to_chat(user, SPAN_NOTICE("[src] is already empty!</span>"))
 		return
-	to_chat(user, "<span class='notice'>You empty [src].</span>")
+	to_chat(user, SPAN_NOTICE("You empty [src].</span>"))
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
 		C.set_dir(pick(GLOB.alldirs))
@@ -220,12 +240,12 @@
 /obj/item/ammo_magazine/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
 		if(!stored_ammo.len)
-			to_chat(user, "<span class='notice'>[src] is already empty!</span>")
+			to_chat(user, SPAN_NOTICE("[src] is already empty!</span>"))
 		else
 			var/obj/item/ammo_casing/C = stored_ammo[stored_ammo.len]
 			stored_ammo-=C
 			user.put_in_hands(C)
-			user.visible_message("\The [user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
+			user.visible_message("\The [user] removes \a [C] from [src].", SPAN_NOTICE("You remove \a [C] from [src].</span>"))
 			if(bullet_insert_sound)
 				playsound(user, bullet_insert_sound, rand(45, 60), FALSE)
 			update_icon()

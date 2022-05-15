@@ -146,7 +146,7 @@
 					C.loc = src
 					loaded.Insert(1, C)
 					AM.stored_ammo.Cut(1, 2)
-					user.setClickCooldown(FAST_WEAPON_COOLDOWN)
+					user.setClickCooldown(DEFAULT_WEAPON_COOLDOWN)
 				if(C.casing_insert_sound)
 					playsound(src, C.casing_insert_sound, rand(50, 75), FALSE)
 				AM.check_empty()

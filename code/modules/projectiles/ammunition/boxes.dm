@@ -335,7 +335,7 @@
 /obj/item/ammo_magazine/handful/s12g/practice
 	name = "12g practice shells handful"
 	desc = "A handful of 12 gauge practice shells."
-	ammo_string = "emp"
+	ammo_string = "pract"
 	ammo_type = /obj/item/ammo_casing/s12g/practice
 
 /obj/item/ammo_magazine/handful/a357
@@ -421,3 +421,15 @@
 /obj/item/ammo_magazine/handful/a145
 
 /obj/item/ammo_magazine/handful/a145/apds
+
+/obj/item/ammo_magazine/box/s12ga
+	name = "12ga box"
+	icon_state = "shotgunshells"
+	caliber = "12g"
+	ammo_type = /obj/item/ammo_casing/s12g/pellet
+	max_ammo = 20
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/box/s12ga/down
+	name = "12ga box down"
+	icon_state = "dshotgunshells"
