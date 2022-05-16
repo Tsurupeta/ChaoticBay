@@ -139,7 +139,7 @@
 						playsound(src, mag_insert_sound, rand(50, 75), FALSE)
 			if(SINGLE_LOAD)
 				if(loaded.len >= max_shells)
-					to_chat(user, "<span class='warning'>[src] is full!</span>")
+					to_chat(user, SPAN_WARNING("[src] is full!"))
 					return
 				var/obj/item/ammo_casing/C = AM.stored_ammo[1]
 				if(C)
