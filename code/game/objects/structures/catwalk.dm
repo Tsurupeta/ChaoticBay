@@ -68,3 +68,36 @@
 			if((istype(loc, /turf/space) || istype(loc, /turf/simulated/open)) && !(locate(/obj/structure/lattice) in loc))
 				new /obj/structure/lattice(loc)
 			qdel(src)
+
+obj/structure/lcatwalk
+	name = "lcatwalk"
+	desc = "Cats really don't like these things."
+	icon = 'icons/obj/catwalks.dmi'
+	icon_state = "lcatwalk-0"
+	density = 0
+	anchored = 1.0
+	layer = CATWALK_LAYER
+
+obj/structure/lcatwalk/d1
+	icon_state = "lcatwalk-1"
+
+obj/structure/lcatwalk/d2
+	icon_state = "lcatwalk-2"
+
+obj/structure/lcatwalk/d3
+	icon_state = "lcatwalk-3"
+
+obj/structure/lcatwalk/cross
+	icon_state = "lcatwalk_cross-0"
+
+obj/structure/lcatwalk/cross/d1
+	icon_state = "lcatwalk_cross-1"
+
+obj/structure/lcatwalk/cross/d2
+	icon_state = "lcatwalk_cross-2"
+
+obj/structure/lcatwalk/cross/d3
+	icon_state = "lcatwalk_cross-3"
+
+obj/structure/lcatwalk/n
+	icon_state = "ncatwalk"
