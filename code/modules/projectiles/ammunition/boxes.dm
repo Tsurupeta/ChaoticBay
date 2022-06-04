@@ -429,7 +429,4 @@
 	ammo_type = /obj/item/ammo_casing/s12g/pellet
 	max_ammo = 20
 	multiple_sprites = 1
-
-/obj/item/ammo_magazine/box/s12ga/down
-	name = "12ga box down"
-	icon_state = "dshotgunshells"
+	bullet_insert_sound = 'sound/effects/weapons/misc/pb.ogg'
