@@ -147,6 +147,7 @@
 	take_damage(damage)
 
 /turf/simulated/wall/bullet_act(obj/item/projectile/Proj)
+	/*
 	var/proj_damage = Proj.get_structure_damage()
 	if(ricochet_id != 0)
 		if(ricochet_id == Proj.ricochet_id)
@@ -253,6 +254,24 @@
 
 	take_damage(damage)
 	return
+	*/
+	if(istype(Proj,/obj/item/projectile/beam))
+		burn(2500)
+	else if(istype(Proj,/obj/item/projectile/ion))
+		burn(500)
+
+	var/proj_damage = Proj.get_structure_damage()
+
+	if(reinf_material)
+		if(Proj.damage_type == BURN)
+			proj_damage /= reinf_material.burn_armor
+		else if(Proj.damage_type == BRUTE)
+			proj_damage /= reinf_material.brute_armor
+
+	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
+	var/damage = min(proj_damage, 100)
+
+	take_damage(damage)
 
 /turf/simulated/wall/hitby(atom/movable/AM, speed = THROWFORCE_SPEED_DIVISOR, nomsg = FALSE)
 	..()
