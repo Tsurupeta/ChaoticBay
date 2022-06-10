@@ -340,3 +340,15 @@
 /obj/item/ammo_magazine/handful/get_storage_cost()
 	check_empty()
 	return stored_ammo[1].get_storage_cost() * stored_ammo.len
+
+/obj/item/ammo_magazine/handful/dropped()
+	addtimer(1)
+	var/turf/T = get_turf(usr)
+	if(T)
+		for(var/obj/item/ammo_casing/C in stored_ammo)
+			C.loc = T
+			C.SpinAnimation(4, 1)
+			if(C.casing_fall_sound)
+				playsound(C, C.casing_fall_sound, rand(45, 60), TRUE)
+		stored_ammo.Cut()
+		check_empty()
