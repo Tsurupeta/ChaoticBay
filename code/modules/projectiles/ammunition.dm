@@ -350,7 +350,7 @@
 		stored_ammo.Cut()
 		check_empty()
 
-/obj/item/ammo_magazine/handful/throw_at()
+/obj/item/ammo_magazine/handful/throw_impact()
 	..()
 	scatter()
 
