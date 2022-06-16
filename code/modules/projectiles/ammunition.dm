@@ -347,9 +347,6 @@
 		for(var/obj/item/ammo_casing/C in stored_ammo)
 			C.loc = T
 			C.update_icon()
-			C.SpinAnimation(4, 1)
-			if(C.casing_fall_sound)
-				playsound(C, C.casing_fall_sound, rand(45, 60), TRUE)
 		stored_ammo.Cut()
 		check_empty()
 
