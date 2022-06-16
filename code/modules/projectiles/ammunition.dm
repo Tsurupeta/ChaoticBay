@@ -341,14 +341,22 @@
 	check_empty()
 	return stored_ammo[1].get_storage_cost() * stored_ammo.len
 
-/obj/item/ammo_magazine/handful/dropped()
-	addtimer(1)
-	var/turf/T = get_turf(usr)
+/obj/item/ammo_magazine/handful/proc/scatter()
+	var/turf/T = get_turf(src)
 	if(T)
 		for(var/obj/item/ammo_casing/C in stored_ammo)
 			C.loc = T
+			C.update_icon()
 			C.SpinAnimation(4, 1)
 			if(C.casing_fall_sound)
 				playsound(C, C.casing_fall_sound, rand(45, 60), TRUE)
 		stored_ammo.Cut()
 		check_empty()
+
+/obj/item/ammo_magazine/handful/throw_at()
+	..()
+	scatter()
+
+/obj/item/ammo_magazine/handful/dropped_on_ground()
+	..()
+	scatter()
