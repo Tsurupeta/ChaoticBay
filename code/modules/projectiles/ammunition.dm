@@ -357,3 +357,15 @@
 /obj/item/ammo_magazine/handful/dropped_on_ground()
 	..()
 	scatter()
+
+/obj/item/ammo_magazine/handful/on_found()
+	..()
+	scatter()
+
+/obj/item/ammo_magazine/handful/ex_act()
+	scatter()
+	..()
+
+/obj/item/ammo_magazine/handful/check_airflow_movable()
+	scatter()
+	..()

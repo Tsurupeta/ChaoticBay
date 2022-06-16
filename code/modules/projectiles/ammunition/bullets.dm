@@ -1,12 +1,14 @@
 /obj/item/ammo_casing/a357
 	desc = "A .357 bullet casing."
 	caliber = ".357"
+	inv_icon = "0357"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong/revolver
 	ammo_stack = /obj/item/ammo_magazine/handful/a357
 
 /obj/item/ammo_casing/a50
 	desc = "A .50AE bullet casing."
 	caliber = ".50"
+	inv_icon = "050AE"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong
 	ammo_stack = /obj/item/ammo_magazine/handful/a50
 

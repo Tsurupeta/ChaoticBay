@@ -341,28 +341,28 @@
 /obj/item/ammo_magazine/handful/a357
 	name = ".357 rounds handful"
 	desc = "A handful of .357 rounds."
-	icon_state = "357-box"
+	icon_state = "0357"
 	ammo_string = ""
-	max_ammo = 5
+	max_ammo = 8
 	caliber = ".357"
 	ammo_type = /obj/item/ammo_casing/a357
 
 /obj/item/ammo_magazine/handful/a50
 	name = ".50 rounds handful"
 	desc = "A handful of .50 AE rounds."
-	icon_state = "357-box"
+	icon_state = "050AE"
 	ammo_string = ""
 	max_ammo = 5
-	caliber = ".357"
+	caliber = ".50"
 	ammo_type = /obj/item/ammo_casing/a50
 
 /obj/item/ammo_magazine/handful/c38
 	name = ".38 rounds handful"
 	desc = "A handful of .38 rounds."
-	icon_state = "357-box"
+	icon_state = "038"
 	ammo_string = ""
-	max_ammo = 5
-	caliber = ".357"
+	max_ammo = 8
+	caliber = ".38"
 	ammo_type = /obj/item/ammo_casing/c38
 
 /obj/item/ammo_magazine/handful/c38/rubber
@@ -390,7 +390,7 @@
 	desc = "A handful of .45 ACP rounds."
 	icon_state = "045"
 	ammo_string = ""
-	max_ammo = 7
+	max_ammo = 9
 	caliber = ".45"
 	ammo_type = /obj/item/ammo_casing/c45
 
