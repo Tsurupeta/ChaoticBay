@@ -366,6 +366,9 @@
 	ammo_type = /obj/item/ammo_casing/c38
 
 /obj/item/ammo_magazine/handful/c38/rubber
+	name = ".38 rubber rounds handful"
+	desc = "A handful of rubber .38 rounds."
+	ammo_string = "rubber"
 
 /obj/item/ammo_magazine/handful/c38/spec
 
