@@ -364,8 +364,13 @@
 
 /obj/item/ammo_magazine/handful/ex_act()
 	scatter()
-	..()
 
 /obj/item/ammo_magazine/handful/check_airflow_movable()
 	scatter()
+
+/obj/item/ammo_magazine/handful/fire_act
+	scatter()
+
+/obj/item/ammo_magazine/handful/relaymove()
 	..()
+	scatter()

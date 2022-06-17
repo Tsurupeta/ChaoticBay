@@ -551,7 +551,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 
 /datum/autolathe/recipe/magazine_arifle
 	name = "ammunition (5.56mm)"
-	path = /obj/item/ammo_magazine/c556
+	path = /obj/item/ammo_magazine/m556
 	hidden = 1
 	category = "Arms and Ammunition"
 

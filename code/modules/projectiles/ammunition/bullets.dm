@@ -1,20 +1,20 @@
 /obj/item/ammo_casing/a357
 	desc = "A .357 bullet casing."
 	caliber = ".357"
-	inv_icon = "0357"
+	inv_icon = "c0357"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong/revolver
 	ammo_stack = /obj/item/ammo_magazine/handful/a357
 
 /obj/item/ammo_casing/a50
 	desc = "A .50AE bullet casing."
 	caliber = ".50"
-	inv_icon = "050AE"
+	inv_icon = "c050ae"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong
 	ammo_stack = /obj/item/ammo_magazine/handful/a50
 
 /obj/item/ammo_casing/a20
 	desc = "A 20mm bullet casing."
-	caliber = "20mm"
+	caliber = "c050gyrojet"
 	projectile_type = /obj/item/projectile/bullet/gyro
 
 /obj/item/ammo_casing/c38
@@ -55,7 +55,7 @@
 
 /obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
-	inv_icon = "9mm"
+	inv_icon = "c9mm"
 	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
 	ammo_stack = /obj/item/ammo_magazine/handful/c9mm
@@ -92,7 +92,7 @@
 /obj/item/ammo_casing/c45
 	desc = "A .45 bullet casing."
 	caliber = ".45"
-	inv_icon = "045"
+	inv_icon = "c045"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 	ammo_stack = /obj/item/ammo_magazine/handful/c45
 
@@ -127,7 +127,7 @@
 	name = "shotgun slug"
 	desc = "A 12 gauge slug."
 	icon_state = "slshell"
-	inv_icon = "12gslug"
+	inv_icon = "c12gslug"
 	spent_icon = "slshell-spent"
 	caliber = "12g"
 	projectile_type = /obj/item/projectile/bullet/shotgun
@@ -140,7 +140,7 @@
 	name = "shotgun shell"
 	desc = "A 12 gauge shell."
 	icon_state = "gshell"
-	inv_icon = "12gbuck"
+	inv_icon = "c12gbuck"
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(MATERIAL_STEEL = 360)
@@ -150,7 +150,7 @@
 	name = "shotgun shell"
 	desc = "A blank shell."
 	icon_state = "blshell"
-	inv_icon = "12gblank"
+	inv_icon = "c12gblank"
 	spent_icon = "blshell-spent"
 	projectile_type = /obj/item/projectile/bullet/blank
 	matter = list(MATERIAL_STEEL = 90)
@@ -160,7 +160,7 @@
 	name = "shotgun shell"
 	desc = "A practice shell."
 	icon_state = "pshell"
-	inv_icon = "12gpract"
+	inv_icon = "c12gpract"
 	spent_icon = "pshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
 	matter = list(MATERIAL_STEEL = 90)
@@ -170,7 +170,7 @@
 	name = "beanbag shell"
 	desc = "A beanbag shell."
 	icon_state = "bshell"
-	inv_icon = "12gbean"
+	inv_icon = "c12gbean"
 	spent_icon = "bshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/beanbag
 	matter = list(MATERIAL_STEEL = 180)
@@ -182,7 +182,7 @@
 	name = "stun shell"
 	desc = "A 12 gauge taser cartridge."
 	icon_state = "stunshell"
-	inv_icon = "12gstun"
+	inv_icon = "c12gstun"
 	spent_icon = "stunshell-spent"
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
 	leaves_residue = 0
@@ -198,7 +198,7 @@
 	name = "flash shell"
 	desc = "A chemical shell used to signal distress or provide illumination."
 	icon_state = "fshell"
-	inv_icon = "12gflash"
+	inv_icon = "c12gflash"
 	spent_icon = "fshell-spent"
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(MATERIAL_STEEL = 90, MATERIAL_GLASS = 90)
@@ -209,7 +209,7 @@
 	caliber = "5.56"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556
 	icon_state = "rifle-casing"
-	inv_icon = "556"
+	inv_icon = "c556"
 	spent_icon = "rifle-casing-spent"
 	ammo_stack = /obj/item/ammo_magazine/handful/a556
 
@@ -233,7 +233,7 @@
 	desc = "A 7.62mm bullet casing."
 	caliber = "7.62"
 	projectile_type = /obj/item/projectile/bullet/rifle/a762
-	inv_icon = "762"
+	inv_icon = "c762"
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 	ammo_stack = /obj/item/ammo_magazine/handful/a762

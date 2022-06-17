@@ -254,7 +254,7 @@
 
 /obj/item/ammo_magazine/box/a556
 	name = "magazine box (5.56mm)"
-	icon_state = "a556"
+	icon_state = "b556"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "5.56"
@@ -266,9 +266,9 @@
 /obj/item/ammo_magazine/box/a556/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/c556
+/obj/item/ammo_magazine/m556
 	name = "magazine (5.56mm)"
-	icon_state = "c762"
+	icon_state = "m556"
 	mag_type = MAGAZINE
 	caliber = "5.56"
 	matter = list(MATERIAL_STEEL = 2250)
@@ -290,7 +290,7 @@
 /obj/item/ammo_magazine/handful/s12g
 	name = "12g slugs handful"
 	desc = "A handful of 12 gauge slug shells."
-	icon_state = "12g"
+	icon_state = "h12g"
 	ammo_string = "slug"
 	max_ammo = 4
 	caliber = "12g"
@@ -341,7 +341,7 @@
 /obj/item/ammo_magazine/handful/a357
 	name = ".357 rounds handful"
 	desc = "A handful of .357 rounds."
-	icon_state = "0357"
+	icon_state = "h0357"
 	ammo_string = ""
 	max_ammo = 8
 	caliber = ".357"
@@ -350,7 +350,7 @@
 /obj/item/ammo_magazine/handful/a50
 	name = ".50 rounds handful"
 	desc = "A handful of .50 AE rounds."
-	icon_state = "050AE"
+	icon_state = "h050ae"
 	ammo_string = ""
 	max_ammo = 5
 	caliber = ".50"
@@ -359,7 +359,7 @@
 /obj/item/ammo_magazine/handful/c38
 	name = ".38 rounds handful"
 	desc = "A handful of .38 rounds."
-	icon_state = "038"
+	icon_state = "h038"
 	ammo_string = ""
 	max_ammo = 8
 	caliber = ".38"
@@ -388,7 +388,7 @@
 /obj/item/ammo_magazine/handful/c45
 	name = ".45 rounds handful"
 	desc = "A handful of .45 ACP rounds."
-	icon_state = "045"
+	icon_state = "h045"
 	ammo_string = ""
 	max_ammo = 9
 	caliber = ".45"
