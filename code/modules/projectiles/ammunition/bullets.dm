@@ -20,6 +20,7 @@
 /obj/item/ammo_casing/c38
 	desc = "A .38 bullet casing."
 	caliber = ".38"
+	inv_icon = "c038"
 	projectile_type = /obj/item/projectile/bullet/pistol
 	ammo_stack = /obj/item/ammo_magazine/handful/c38
 
@@ -27,6 +28,7 @@
 	desc = "A .38 rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 	icon_state = "r-casing"
+	inv_icon = "c038rubber"
 	ammo_stack = /obj/item/ammo_magazine/handful/c38/rubber
 
 /obj/item/ammo_casing/c38/spec
@@ -118,8 +120,9 @@
 	ammo_stack = /obj/item/ammo_magazine/handful/c45/stun
 
 /obj/item/ammo_casing/a10mm
-	desc = "A 10mm bullet casing."
+	desc = "A 10mm auto bullet casing."
 	caliber = "10mm"
+	inv_icon = "c10mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium/smg
 	ammo_stack = /obj/item/ammo_magazine/handful/a10mm
 
@@ -277,7 +280,7 @@
 
 /obj/item/ammo_casing/a10mm/emp
 	name = "10mm haywire round"
-	desc = "A 10mm bullet casing fitted with a single-use ion pulse generator."
+	desc = "A 10mm auto bullet casing fitted with a single-use ion pulse generator."
 	projectile_type = /obj/item/projectile/ion/small
 	icon_state = "empcasing"
 	matter = list(MATERIAL_STEEL = 130, MATERIAL_URANIUM = 100)

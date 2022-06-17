@@ -412,6 +412,13 @@
 /obj/item/ammo_magazine/handful/c45/emp
 
 /obj/item/ammo_magazine/handful/a10mm
+	name = "10mm rounds handful"
+	desc = "A handful of 10mm auto rounds."
+	icon_state = "h10mm"
+	ammo_string = ""
+	max_ammo = 9
+	caliber = "10mm"
+	ammo_type = /obj/item/ammo_casing/a10mm
 
 /obj/item/ammo_magazine/handful/a10mm/emp
 

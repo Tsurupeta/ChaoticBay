@@ -62,6 +62,7 @@
 	pixel_y = rand(-randpixel, randpixel)
 
 /obj/item/ammo_casing/attackby(obj/item/W as obj, mob/user as mob)
+	user.setClickCooldown(DEFAULT_WEAPON_COOLDOWN)
 	if(isScrewdriver(W))
 		if(!BB)
 			to_chat(user, SPAN_NOTICE("There is no bullet in the casing to inscribe anything into."))
@@ -358,10 +359,6 @@
 	..()
 	scatter()
 
-/obj/item/ammo_magazine/handful/on_found()
-	..()
-	scatter()
-
 /obj/item/ammo_magazine/handful/ex_act()
 	scatter()
 
@@ -372,5 +369,4 @@
 	scatter()
 
 /obj/item/ammo_magazine/handful/relaymove()
-	..()
 	scatter()
