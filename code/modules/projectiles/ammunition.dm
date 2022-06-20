@@ -23,10 +23,16 @@
 	. = ..()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)
+	register_signal(src, SIGNAL_MOVED, /atom/proc/update_icon)
 
 /obj/item/ammo_casing/Destroy()
 	QDEL_NULL(BB)
+	unregister_signal(src, SIGNAL_MOVED)
 	return ..()
+
+/obj/item/ammo_casing/New()
+	..()
+	update_icon()
 
 //removes the projectile from the ammo casing
 /obj/item/ammo_casing/proc/expend()
@@ -112,18 +118,6 @@
 	else
 		..()
 
-/obj/item/ammo_casing/dropped(mob/user)
-	. = ..()
-	update_icon()
-
-/obj/item/ammo_casing/on_enter_storage(obj/item/storage/S)
-	. = ..()
-	update_icon()
-
-/obj/item/ammo_casing/equipped()
-	. = ..()
-	update_icon()
-
 /obj/item/ammo_casing/update_icon()
 	if(spent_icon && !BB)
 		icon_state = spent_icon
@@ -132,7 +126,6 @@
 		icon_state = inv_icon
 	else
 		icon_state = initial(icon_state)
-
 
 /obj/item/ammo_casing/_examine_text(mob/user)
 	. = ..()
