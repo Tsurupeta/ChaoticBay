@@ -11,7 +11,7 @@
 	mod_reach = 0.5
 	mod_handy = 1.0
 	fire_delay = 6.75 //Revolvers are naturally slower-firing
-	ammo_type = /obj/item/ammo_casing/a357
+	ammo_type = /obj/item/ammo_casing/с357
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 	fire_sound = 'sound/effects/weapons/gun/fire2.ogg'
 	mag_insert_sound = 'sound/effects/weapons/gun/spin_cylinder1.ogg'
@@ -29,7 +29,7 @@
 	mod_reach = 0.5
 	mod_handy = 1.0
 	fire_delay = 6.75 //Revolvers are naturally slower-firing
-	ammo_type = /obj/item/ammo_casing/a357
+	ammo_type = /obj/item/ammo_casing/с357
 
 /obj/item/gun/projectile/revolver/AltClick()
 	if(CanPhysicallyInteract(usr))

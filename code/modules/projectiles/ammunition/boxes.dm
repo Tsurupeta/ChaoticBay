@@ -6,7 +6,7 @@
 	desc = "A speed loader for revolvers."
 	icon_state = "38"
 	caliber = ".357"
-	ammo_type = /obj/item/ammo_casing/a357
+	ammo_type = /obj/item/ammo_casing/с357
 	matter = list(MATERIAL_STEEL = 1260)
 	max_ammo = 6
 	multiple_sprites = 1
@@ -338,14 +338,14 @@
 	ammo_string = "pract"
 	ammo_type = /obj/item/ammo_casing/s12g/practice
 
-/obj/item/ammo_magazine/handful/a357
+/obj/item/ammo_magazine/handful/с357
 	name = ".357 rounds handful"
 	desc = "A handful of .357 rounds."
 	icon_state = "h0357"
 	ammo_string = ""
 	max_ammo = 8
 	caliber = ".357"
-	ammo_type = /obj/item/ammo_casing/a357
+	ammo_type = /obj/item/ammo_casing/с357
 
 /obj/item/ammo_magazine/handful/c50
 	name = ".50 rounds handful"

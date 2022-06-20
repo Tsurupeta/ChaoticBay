@@ -279,7 +279,7 @@
 	fire_sound = 'sound/effects/weapons/gun/fire6.ogg'
 
 	var/global/list/ammo_types = list(
-		/obj/item/ammo_casing/a357              = ".357",
+		/obj/item/ammo_casing/с357              = ".357",
 		/obj/item/ammo_casing/a762              = "7.62mm",
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)
