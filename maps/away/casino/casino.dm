@@ -86,13 +86,13 @@
 	pixel_x = rand(-10, 10)
 	pixel_y = rand(-10, 10)
 
-/obj/item/ammo_casing/a50/used/Initialize()
+/obj/item/ammo_casing/c50/used/Initialize()
 	. = ..()
 	expend()
 	pixel_x = rand(-10, 10)
 	pixel_y = rand(-10, 10)
 
-/obj/item/ammo_casing/a10mm/used/Initialize()
+/obj/item/ammo_casing/c10mm/used/Initialize()
 	. = ..()
 	expend()
 	pixel_x = rand(-10, 10)

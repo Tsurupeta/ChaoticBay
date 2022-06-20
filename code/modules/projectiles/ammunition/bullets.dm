@@ -5,17 +5,19 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/strong/revolver
 	ammo_stack = /obj/item/ammo_magazine/handful/a357
 
-/obj/item/ammo_casing/a50
+/obj/item/ammo_casing/c50
 	desc = "A .50AE bullet casing."
 	caliber = ".50"
 	inv_icon = "c050ae"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong
-	ammo_stack = /obj/item/ammo_magazine/handful/a50
+	ammo_stack = /obj/item/ammo_magazine/handful/c50
 
-/obj/item/ammo_casing/a20
+/obj/item/ammo_casing/c20
 	desc = "A 20mm bullet casing."
-	caliber = "c050gyrojet"
+	caliber = "20mm"
+	inv_icon = "20mm-gyro"
 	projectile_type = /obj/item/projectile/bullet/gyro
+	ammo_stack = /obj/item/ammo_magazine/handful/c20
 
 /obj/item/ammo_casing/c38
 	desc = "A .38 bullet casing."
@@ -119,12 +121,12 @@
 	projectile_type = /obj/item/projectile/energy/electrode/c45
 	ammo_stack = /obj/item/ammo_magazine/handful/c45/stun
 
-/obj/item/ammo_casing/a10mm
+/obj/item/ammo_casing/c10mm
 	desc = "A 10mm auto bullet casing."
 	caliber = "10mm"
 	inv_icon = "c10mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium/smg
-	ammo_stack = /obj/item/ammo_magazine/handful/a10mm
+	ammo_stack = /obj/item/ammo_magazine/handful/c10mm
 
 /obj/item/ammo_casing/s12g
 	name = "shotgun slug"
@@ -278,13 +280,13 @@
 	matter = list(MATERIAL_STEEL = 130, MATERIAL_URANIUM = 100)
 	ammo_stack = /obj/item/ammo_magazine/handful/c45/emp
 
-/obj/item/ammo_casing/a10mm/emp
+/obj/item/ammo_casing/c10mm/emp
 	name = "10mm haywire round"
 	desc = "A 10mm auto bullet casing fitted with a single-use ion pulse generator."
 	projectile_type = /obj/item/projectile/ion/small
 	icon_state = "empcasing"
 	matter = list(MATERIAL_STEEL = 130, MATERIAL_URANIUM = 100)
-	ammo_stack = /obj/item/ammo_magazine/handful/a10mm/emp
+	ammo_stack = /obj/item/ammo_magazine/handful/c10mm/emp
 
 /obj/item/ammo_casing/s12g/emp
 	name = "haywire slug"

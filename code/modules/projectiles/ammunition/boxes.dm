@@ -16,7 +16,7 @@
 	desc = "A speed loader for revolvers."
 	icon_state = "38"
 	caliber = ".50"
-	ammo_type = /obj/item/ammo_casing/a50
+	ammo_type = /obj/item/ammo_casing/c50
 	matter = list(MATERIAL_STEEL = 1260)
 	max_ammo = 6
 	multiple_sprites = 1
@@ -157,7 +157,7 @@
 
 /obj/item/ammo_magazine/box/emp/a10mm
 	name = "ammunition box (10mm, haywire)"
-	ammo_type = /obj/item/ammo_casing/a10mm/emp
+	ammo_type = /obj/item/ammo_casing/c10mm/emp
 	caliber = "10mm"
 
 /obj/item/ammo_magazine/mc9mmt
@@ -201,7 +201,7 @@
 	mag_type = MAGAZINE
 	caliber = "10mm"
 	matter = list(MATERIAL_STEEL = 1500)
-	ammo_type = /obj/item/ammo_casing/a10mm
+	ammo_type = /obj/item/ammo_casing/c10mm
 	max_ammo = 20
 	multiple_sprites = 1
 
@@ -233,7 +233,7 @@
 	mag_type = MAGAZINE
 	caliber = ".50"
 	matter = list(MATERIAL_STEEL = 1260)
-	ammo_type = /obj/item/ammo_casing/a50
+	ammo_type = /obj/item/ammo_casing/c50
 	max_ammo = 7
 	multiple_sprites = 1
 
@@ -245,7 +245,7 @@
 	icon_state = "75"
 	mag_type = MAGAZINE
 	caliber = "20mm"
-	ammo_type = /obj/item/ammo_casing/a20
+	ammo_type = /obj/item/ammo_casing/c20
 	multiple_sprites = 1
 	max_ammo = 4
 
@@ -347,14 +347,14 @@
 	caliber = ".357"
 	ammo_type = /obj/item/ammo_casing/a357
 
-/obj/item/ammo_magazine/handful/a50
+/obj/item/ammo_magazine/handful/c50
 	name = ".50 rounds handful"
 	desc = "A handful of .50 AE rounds."
 	icon_state = "h050ae"
 	ammo_string = ""
 	max_ammo = 5
 	caliber = ".50"
-	ammo_type = /obj/item/ammo_casing/a50
+	ammo_type = /obj/item/ammo_casing/c50
 
 /obj/item/ammo_magazine/handful/c38
 	name = ".38 rounds handful"
@@ -384,6 +384,8 @@
 
 /obj/item/ammo_magazine/handful/c9mm/practice
 
+/obj/item/ammo_magazine/handful/c20
+
 /obj/item/ammo_magazine/handful/c44
 
 /obj/item/ammo_magazine/handful/c44/rubber
@@ -411,16 +413,16 @@
 
 /obj/item/ammo_magazine/handful/c45/emp
 
-/obj/item/ammo_magazine/handful/a10mm
+/obj/item/ammo_magazine/handful/c10mm
 	name = "10mm rounds handful"
 	desc = "A handful of 10mm auto rounds."
 	icon_state = "h10mm"
 	ammo_string = ""
 	max_ammo = 9
 	caliber = "10mm"
-	ammo_type = /obj/item/ammo_casing/a10mm
+	ammo_type = /obj/item/ammo_casing/c10mm
 
-/obj/item/ammo_magazine/handful/a10mm/emp
+/obj/item/ammo_magazine/handful/c10mm/emp
 
 /obj/item/ammo_magazine/handful/a556
 

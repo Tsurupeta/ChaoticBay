@@ -162,7 +162,7 @@
 	mod_reach = 0.65
 	mod_handy = 1.0
 	origin_tech = list(TECH_COMBAT = 3)
-	ammo_type = /obj/item/ammo_casing/a20
+	ammo_type = /obj/item/ammo_casing/c20
 	magazine_type = /obj/item/ammo_magazine/a20
 	fire_delay = 25
 	auto_eject = 1

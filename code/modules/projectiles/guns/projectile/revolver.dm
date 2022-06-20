@@ -64,7 +64,7 @@
 	icon_state = "mateba"
 	caliber = ".50"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/a50
+	ammo_type = /obj/item/ammo_casing/c50
 
 /obj/item/gun/projectile/revolver/detective
 	name = "Legacy .38"

@@ -164,10 +164,8 @@
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
 
-		if (istype(C, /obj/item/ammo_casing/s12g))
-			playsound(user, SFX_SHELL_INSERT, rand(45, 60), FALSE)
-		else
-			playsound(user, SFX_BULLET_INSERT, rand(45, 60), FALSE)
+		if(C.casing_insert_sound)
+			playsound(src, C.casing_insert_sound, rand(45, 60), FALSE)
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
@@ -187,7 +185,8 @@
 			user.put_in_hands(ammo_magazine)
 			user.visible_message("[user] removes [ammo_magazine] from [src].",
 			SPAN_NOTICE("You remove [ammo_magazine] from [src]."))
-		playsound(src.loc, mag_eject_sound, 75)
+		if(mag_eject_sound)
+			playsound(src.loc, mag_eject_sound, 75)
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 	else if(loaded.len)
