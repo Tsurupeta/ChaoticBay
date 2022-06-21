@@ -351,7 +351,7 @@
 	var/turf/T = get_turf(src)
 	if(T)
 		for(var/obj/item/ammo_casing/C in stored_ammo)
-			C.loc = T
+			C.forceMove(T)
 			C.update_icon()
 		stored_ammo.Cut()
 		check_ammo()

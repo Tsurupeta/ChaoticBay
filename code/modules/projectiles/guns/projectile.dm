@@ -115,7 +115,7 @@
 					to_chat(user, "<span class='warning'>[src] already has a magazine loaded.</span>")//already a magazine here
 					return
 				user.remove_from_mob(AM)
-				AM.loc = src
+				AM.forceMove(src)
 				ammo_magazine = AM
 				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
 				if(mag_insert_sound)
@@ -129,7 +129,7 @@
 					if(loaded.len >= max_shells)
 						break
 					if(C.caliber == caliber)
-						C.loc = src
+						C.forceMove(src)
 						loaded += C
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
@@ -143,7 +143,7 @@
 					return
 				var/obj/item/ammo_casing/C = AM.stored_ammo[1]
 				if(C)
-					C.loc = src
+					C.forceMove(src)
 					loaded.Insert(1, C)
 					AM.stored_ammo.Cut(1, 2)
 					user.setClickCooldown(DEFAULT_WEAPON_COOLDOWN)
@@ -160,7 +160,7 @@
 			return
 
 		user.remove_from_mob(C)
-		C.loc = src
+		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
 
@@ -196,7 +196,7 @@
 			var/turf/T = get_turf(user)
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
-					C.loc = T
+					C.forceMove(T)
 					C.SpinAnimation(4, 1)
 					if(C.casing_fall_sound)
 						playsound(C, C.casing_fall_sound, rand(45, 60), TRUE)
@@ -232,7 +232,7 @@
 /obj/item/gun/projectile/afterattack(atom/A, mob/living/user)
 	..()
 	if(auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
-		ammo_magazine.loc = get_turf(src.loc)
+		ammo_magazine.forceMove(get_turf(src.loc))
 		user.visible_message(
 			"[ammo_magazine] falls out and clatters on the floor!",
 			"<span class='notice'>[ammo_magazine] falls out and clatters on the floor!</span>"
@@ -264,16 +264,18 @@
 
 /obj/item/gun/projectile/proc/ejectCasing()
 	if(istype(chambered, /obj/item/ammo_casing/s12g))
-		chambered.loc = get_turf(src)
+		chambered.forceMove(get_turf(src))
 		chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), 0, 1)
-		playsound(chambered, 'sound/effects/weapons/gun/shell_fall.ogg', rand(45, 60), TRUE)
 	else
-		chambered.loc = get_turf(src)
+		chambered.forceMove(get_turf(src))
 		if(prob(50))
 			chambered.throw_at(get_ranged_target_turf(get_turf(src), turn(loc.dir, 270), 1), 1, 1)
 		else
 			chambered.SpinAnimation(4, 1)
-		playsound(chambered, SFX_CASING_DROP, rand(45, 60), TRUE)
+	chambered.pixel_x = rand(-randpixel, randpixel)
+	chambered.pixel_y = rand(-randpixel, randpixel)
+	if(chambered.casing_fall_sound)
+		playsound(chambered, chambered.casing_fall_sound, rand(45, 60), TRUE)
 
 /* Unneeded -- so far.
 //in case the weapon has firemodes and can't unload using attack_hand()

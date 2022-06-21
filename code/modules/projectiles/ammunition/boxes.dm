@@ -340,7 +340,7 @@
 
 /obj/item/ammo_magazine/handful/c357
 	name = ".357 rounds handful"
-	desc = "A handful of .357 rounds."
+	desc = "A handful of .357 Magnum rounds."
 	icon_state = "h0357"
 	ammo_string = ""
 	max_ammo = 8
@@ -358,7 +358,7 @@
 
 /obj/item/ammo_magazine/handful/c38
 	name = ".38 rounds handful"
-	desc = "A handful of .38 rounds."
+	desc = "A handful of .38 special rounds."
 	icon_state = "h038"
 	ammo_string = ""
 	max_ammo = 8
@@ -367,7 +367,7 @@
 
 /obj/item/ammo_magazine/handful/c38/rubber
 	name = ".38 rubber rounds handful"
-	desc = "A handful of rubber .38 rounds."
+	desc = "A handful of rubber .38 special rounds."
 	ammo_string = "rubber"
 
 /obj/item/ammo_magazine/handful/c38/spec
