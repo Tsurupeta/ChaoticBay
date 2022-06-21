@@ -210,7 +210,7 @@
 
 /obj/item/ammo_magazine/a762
 	name = "magazine (7.62mm)"
-	icon_state = "5.56"
+	icon_state = "m762"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "7.62"
@@ -433,12 +433,3 @@
 /obj/item/ammo_magazine/handful/a145
 
 /obj/item/ammo_magazine/handful/a145/apds
-
-/obj/item/ammo_magazine/box/s12ga
-	name = "12ga box"
-	icon_state = "shotgunshells"
-	caliber = "12g"
-	ammo_type = /obj/item/ammo_casing/s12g/pellet
-	max_ammo = 20
-	multiple_sprites = 1
-	bullet_insert_sound = 'sound/effects/weapons/misc/pb.ogg'
