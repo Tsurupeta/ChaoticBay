@@ -216,7 +216,7 @@
 				A.update_icon()
 				if(bullet_insert_sound)
 					playsound(user, bullet_insert_sound, rand(45, 60), FALSE)
-				A.check_empty()
+				A.check_ammo()
 				if(istype(src, /obj/item/ammo_magazine/handful))
 					return
 				user.setClickCooldown(DEFAULT_WEAPON_COOLDOWN)
@@ -266,7 +266,7 @@
 	. = ..()
 	. += "\nThere [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!"
 
-/obj/item/ammo_magazine/proc/check_empty()
+/obj/item/ammo_magazine/proc/check_ammo()
 	return
 
 //magazine icon state caching
@@ -322,17 +322,29 @@
 /obj/item/ammo_magazine/handful/attack_self(mob/user)
 	return
 
-/obj/item/ammo_magazine/handful/check_empty()
-	if(!stored_ammo.len)
-		qdel(src)
-	return
+/obj/item/ammo_magazine/handful/check_ammo()
+	var/ammo_length = stored_ammo.len
+	switch(ammo_length)
+		if(0)
+			qdel(src)
+		if(1)
+			var/obj/item/ammo_casing/C = stored_ammo[1]
+			C.forceMove(get_turf(src))
+			var/mob/M
+			if(ismob(loc))
+				M = loc
+			qdel(src)
+			if(M)
+				M.put_in_hands(C)
+		else
+			return
 
 /obj/item/ammo_magazine/handful/attack_hand()
 	..()
-	check_empty()
+	check_ammo()
 
 /obj/item/ammo_magazine/handful/get_storage_cost()
-	check_empty()
+	check_ammo()
 	return stored_ammo[1].get_storage_cost() * stored_ammo.len
 
 /obj/item/ammo_magazine/handful/proc/scatter()
@@ -342,7 +354,7 @@
 			C.loc = T
 			C.update_icon()
 		stored_ammo.Cut()
-		check_empty()
+		check_ammo()
 
 /obj/item/ammo_magazine/handful/throw_impact()
 	..()

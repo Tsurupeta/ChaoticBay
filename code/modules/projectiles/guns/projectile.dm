@@ -149,7 +149,7 @@
 					user.setClickCooldown(DEFAULT_WEAPON_COOLDOWN)
 				if(C.casing_insert_sound)
 					playsound(src, C.casing_insert_sound, rand(50, 75), FALSE)
-				AM.check_empty()
+				AM.check_ammo()
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
