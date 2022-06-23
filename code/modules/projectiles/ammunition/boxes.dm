@@ -352,7 +352,7 @@
 	desc = "A handful of .50 AE rounds."
 	icon_state = "h050ae"
 	ammo_string = ""
-	max_ammo = 5
+	max_ammo = 6
 	caliber = ".50"
 	ammo_type = /obj/item/ammo_casing/c50
 
@@ -369,6 +369,7 @@
 	name = ".38 rubber rounds handful"
 	desc = "A handful of rubber .38 special rounds."
 	ammo_string = "rubber"
+	ammo_type = /obj/item/ammo_casing/c38/rubber
 
 /obj/item/ammo_magazine/handful/c38/spec
 
@@ -377,12 +378,31 @@
 /obj/item/ammo_magazine/handful/c38/emp
 
 /obj/item/ammo_magazine/handful/c9mm
+	name = "9mm rounds handful"
+	desc = "A handful of 9mm rounds."
+	icon_state = "h9mm"
+	ammo_string = ""
+	max_ammo = 9
+	caliber = "9mm"
+	ammo_type = /obj/item/ammo_casing/c9mm
 
 /obj/item/ammo_magazine/handful/c9mm/flash
+	name = "9mm flash rounds handful"
+	desc = "A handful of 9mm flash rounds."
+	ammo_string = "flash"
+	ammo_type = /obj/item/ammo_casing/c9mm/flash
 
 /obj/item/ammo_magazine/handful/c9mm/rubber
+	name = "9mm rubber rounds handful"
+	desc = "A handful of 9mm rubber rounds."
+	ammo_string = "rubber"
+	ammo_type = /obj/item/ammo_casing/c9mm/rubber
 
 /obj/item/ammo_magazine/handful/c9mm/practice
+	name = "9mm practice rounds handful"
+	desc = "A handful of 9mm practice rounds."
+	ammo_string = "pract"
+	ammo_type = /obj/item/ammo_casing/c9mm/practice
 
 /obj/item/ammo_magazine/handful/c20
 

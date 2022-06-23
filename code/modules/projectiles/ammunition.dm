@@ -2,7 +2,7 @@
 	name = "bullet casing"
 	desc = "A bullet casing."
 	icon = 'icons/obj/ammo.dmi'
-	icon_state = "pistol-casing"
+	icon_state = "s-casing"
 	randpixel = 10
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT | SLOT_EARS
@@ -13,7 +13,7 @@
 	var/caliber = ""					//Which kind of guns it can be loaded into
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
-	var/spent_icon = "pistol-casing-spent"
+	var/spent_icon = "s-casing-spent"
 	var/inv_icon = ""
 	var/ammo_stack = null
 	var/casing_fall_sound = SFX_CASING_DROP

@@ -59,6 +59,8 @@
 
 /obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
+	icon_state = "pistol-casing"
+	spent_icon = "pistol-casing-spent"
 	inv_icon = "c9mm"
 	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
@@ -96,6 +98,8 @@
 /obj/item/ammo_casing/c45
 	desc = "A .45 bullet casing."
 	caliber = ".45"
+	icon_state = "pistol-casing"
+	spent_icon = "pistol-casing-spent"
 	inv_icon = "c045"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 	ammo_stack = /obj/item/ammo_magazine/handful/c45
