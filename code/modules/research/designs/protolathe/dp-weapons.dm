@@ -179,7 +179,7 @@
 	id = "stunshell"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	materials = list(MATERIAL_STEEL = 4000)
-	build_path = /obj/item/ammo_casing/s12g/stunshell
+	build_path = /obj/item/ammo_casing/shotgun/stunshell
 	sort_string = "TBAAB"
 
 /datum/design/item/weapon/ammunition/ammo_emp_38
@@ -211,5 +211,5 @@
 	desc = "A shotgun slug with an integrated EMP charge."
 	materials = list(MATERIAL_STEEL = 3000, MATERIAL_URANIUM = 1000)
 	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3)
-	build_path = /obj/item/ammo_casing/s12g/emp
+	build_path = /obj/item/ammo_casing/shotgun/emp
 	sort_string = "TBAAF"

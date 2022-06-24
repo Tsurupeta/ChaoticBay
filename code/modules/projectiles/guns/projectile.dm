@@ -263,7 +263,7 @@
 	return bullets
 
 /obj/item/gun/projectile/proc/ejectCasing()
-	if(istype(chambered, /obj/item/ammo_casing/s12g))
+	if(istype(chambered, /obj/item/ammo_casing/shotgun))
 		chambered.forceMove(get_turf(src))
 		chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), 0, 1)
 	else

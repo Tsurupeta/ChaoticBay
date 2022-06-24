@@ -328,18 +328,18 @@ var/const/EXTRA_COST_FACTOR = 1.25
 
 /datum/autolathe/recipe/shotgun_blanks
 	name = "ammunition (shotgun, blank)"
-	path = /obj/item/ammo_casing/s12g/blank
+	path = /obj/item/ammo_casing/shotgun/blank
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/shotgun_beanbag
 	name = "ammunition (shotgun, beanbag)"
-	path = /obj/item/ammo_casing/s12g/beanbag
+	path = /obj/item/ammo_casing/shotgun/beanbag
 	hidden = 1
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/shotgun_flash
 	name = "ammunition (shotgun, flash)"
-	path = /obj/item/ammo_casing/s12g/flash
+	path = /obj/item/ammo_casing/shotgun/flash
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -569,13 +569,13 @@ var/const/EXTRA_COST_FACTOR = 1.25
 
 /datum/autolathe/recipe/shotgun
 	name = "ammunition (slug, shotgun)"
-	path = /obj/item/ammo_casing/s12g
+	path = /obj/item/ammo_casing/shotgun
 	hidden = 1
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/shotgun_pellet
 	name = "ammunition (shell, shotgun)"
-	path = /obj/item/ammo_casing/s12g/pellet
+	path = /obj/item/ammo_casing/shotgun/pellet
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -587,7 +587,7 @@ var/const/EXTRA_COST_FACTOR = 1.25
 
 /datum/autolathe/recipe/stunshell
 	name = "ammunition (stun cartridge, shotgun)"
-	path = /obj/item/ammo_casing/s12g/stunshell
+	path = /obj/item/ammo_casing/shotgun/stunshell
 	hidden = 1
 	category = "Arms and Ammunition"
 
