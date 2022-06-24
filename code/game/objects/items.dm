@@ -564,7 +564,10 @@ var/list/global/slot_flags_enumeration = list(
 			spawn()
 				shake_camera(user, 1)
 			return PROJECTILE_FORCE_BLOCK
-		else if(block_tier == BLOCK_TIER_ADVANCED)
+		else if(block_tier = BLOCK_TIER_ADVANCED)
+			var/obj/item/projectile/P = damage_source
+			if(!P.blockable)
+				return 0
 			// some effects here
 			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 			spark_system.set_up(3, 0, user.loc)
