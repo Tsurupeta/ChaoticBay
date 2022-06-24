@@ -200,21 +200,15 @@
 	icon_state = "stun"
 	fire_sound = 'sound/effects/weapons/energy/fire1.ogg'
 	check_armour = "energy"
-	damage_type = PAIN
-	armor_penetration = 10
-	nodamage = TRUE
-	sharp = FALSE // not a laser
-	damage = 0
+	sharp = 0 //not a laser
 	agony = 40
-	tasing = 6
+	tasing = 1
+	damage_type = STUN
+	penetration_modifier = 0
 
 	muzzle_type = /obj/effect/projectile/stun/muzzle
 	tracer_type = /obj/effect/projectile/stun/tracer
 	impact_type = /obj/effect/projectile/stun/impact
-
-/obj/item/projectile/beam/stun/greater
-	name = "stun beam"
-	agony = 55
 
 /obj/item/projectile/beam/stun/heavy
 	name = "heavy stun beam"
@@ -225,8 +219,6 @@
 	damage_type = ELECTROCUTE
 	damage = 10
 	agony  = 5
-	nodamage = FALSE
-	damage_type = STUN
 	penetration_modifier = 0.1
 	fire_sound='sound/effects/weapons/energy/fire2.ogg'
 

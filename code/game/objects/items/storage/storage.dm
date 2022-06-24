@@ -14,7 +14,6 @@
 	var/max_w_class = ITEM_SIZE_SMALL //Max size of objects that this object can store (in effect only if can_hold isn't set)
 	var/max_storage_space = null //Total storage cost of items this can hold. Will be autoset based on storage_slots if left null.
 	var/storage_slots = null //The number of storage slots in this container.
-	var/list/override_w_class // List of items that can bypass the max_w_class restriction
 
 	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
 	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.

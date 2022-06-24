@@ -11,22 +11,22 @@
 	hidden = 1
 
 /decl/hierarchy/supply_pack/security/lightarmor
-	name = "Armor - Standard"
-	contains = list(/obj/item/clothing/suit/armor/vest = 4,
+	name = "Armor - Light"
+	contains = list(/obj/item/clothing/suit/armor/pcarrier/light = 4,
 					/obj/item/clothing/head/helmet =4)
 	cost = 30
 	containertype = /obj/structure/closet/crate/secure
-	containername = "\improper Armor crate"
+	containername = "\improper Light armor crate"
 	access = access_security
 
 /decl/hierarchy/supply_pack/security/armor
-	name = "Armor - Modular"
+	name = "Armor - Unmarked"
 	contains = list(/obj/item/clothing/suit/armor/pcarrier/medium = 2,
 					/obj/item/clothing/head/helmet = 2,
 					/obj/item/device/radio/headset/tactical = 2)
 	cost = 25
 	containertype = /obj/structure/closet/crate/secure
-	containername = "\improper Modular armor crate"
+	containername = "\improper Armor crate"
 	access = access_security
 
 /decl/hierarchy/supply_pack/security/blackguards
@@ -126,7 +126,8 @@
 	name = "Weapons - Security basic"
 	contains = list(/obj/item/device/flash = 4,
 					/obj/item/reagent_containers/spray/pepper = 4,
-					/obj/item/storage/secure/guncase/security = 4)
+					/obj/item/melee/baton/loaded = 4,
+					/obj/item/gun/energy/taser = 4)
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "\improper Weapons crate"
@@ -143,7 +144,7 @@
 
 /decl/hierarchy/supply_pack/security/egun
 	name = "Weapons - Energy sidearms"
-	contains = list(/obj/item/gun/energy/egun = 4)
+	contains = list(/obj/item/gun/energy/gun = 4)
 	cost = 40
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "\improper Energy sidearms crate"
@@ -182,7 +183,7 @@
 /decl/hierarchy/supply_pack/security/pistol
 	name = "Weapons - Ballistic sidearms"
 	contains = list(/obj/item/gun/projectile/pistol/vp78 = 4)
-	cost = 50
+	cost = 40
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "\improper Ballistic sidearms crate"
 	access = access_armory
@@ -190,21 +191,21 @@
 
 /decl/hierarchy/supply_pack/security/shotgun
 	name = "Weapons - Shotgun"
-	contains = list(/obj/item/gun/projectile/shotgun/pump = 2)
-	cost = 70
+	contains = list(/obj/item/gun/projectile/shotgun/pump/combat = 2)
+	cost = 60
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "\improper Shotgun crate"
 	access = access_armory
-	security_level = SUPPLY_SECURITY_HIGH
+	security_level = SUPPLY_SECURITY_ELEVATED
 
 /decl/hierarchy/supply_pack/security/smg
-	name = "Weapons - SMG"
+	name = "Weapons - Ballistic PDW"
 	contains = list(/obj/item/gun/projectile/automatic/wt550 = 2)
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure/weapon
-	containername = "\improper SMG crate"
+	containername = "\improper Ballistic PDW crate"
 	access = access_armory
-	security_level = SUPPLY_SECURITY_HIGH
+	security_level = SUPPLY_SECURITY_ELEVATED
 
 /decl/hierarchy/supply_pack/security/rifle
 	name = "Weapons - Ballistic rifles"

@@ -84,8 +84,8 @@
 	var/tmp/told_cant_shoot = 0 //So that it doesn't spam them with the fact they cannot hit them.
 	var/tmp/lock_time = -100
 
-/obj/item/gun/Initialize()
-	. = ..()
+/obj/item/gun/New()
+	..()
 	for(var/i in 1 to firemodes.len)
 		firemodes[i] = new /datum/firemode(src, firemodes[i])
 
@@ -521,18 +521,6 @@
 	if(firemodes.len > 1)
 		var/datum/firemode/current_mode = firemodes[sel_mode]
 		. += "\nThe fire selector is set to [current_mode.name]."
-
-// (re)Setting firemodes from the given list
-/obj/item/gun/proc/set_firemodes(list/_firemodes = null)
-	QDEL_LIST(firemodes)
-	if(!length(_firemodes))
-		sel_mode = 1
-		return
-	for(var/i in 1 to _firemodes.len)
-		firemodes |= new /datum/firemode(src, _firemodes[i])
-	sel_mode = 1
-	var/datum/firemode/F = firemodes[1]
-	F.apply_to(src)
 
 /obj/item/gun/proc/switch_firemodes()
 	if(firemodes.len <= 1)
