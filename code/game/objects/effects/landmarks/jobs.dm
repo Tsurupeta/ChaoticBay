@@ -43,10 +43,6 @@
 	name = "Bartender"
 	icon_state = "landmark_bar"
 
-/obj/effect/landmark/start/crew/barmonkey
-	name = "Waiter"
-	icon_state = "landmark_monkey"
-
 // Civilian
 /obj/effect/landmark/start/crew/assistant
 	name = "Assistant"

@@ -413,12 +413,8 @@ var/global/datum/controller/occupations/job_master
 		var/list/spawn_in_storage = list()
 
 		if(job)
-			if(rank == "Waiter")
-				H.disabilities = null
-				H.change_species("Monkey")
-				H.revive() // Disabled monkeys are bad
-				QDEL_LIST(H.worn_underwear)
-			// Equip job items.
+
+			//Equip job items.
 			job.setup_account(H)
 			job.equip(H, H.mind ? H.mind.role_alt_title : "", H.char_branch, H.char_rank)
 			job.apply_fingerprints(H)
@@ -730,8 +726,6 @@ var/global/datum/controller/occupations/job_master
 
 	var/datum/job/J = GetJob(title)
 	if(!J)
-		return FALSE
-	if(J.no_latejoin)
 		return FALSE
 
 	var/datum/storyteller_character/ST = SSstoryteller.get_character()

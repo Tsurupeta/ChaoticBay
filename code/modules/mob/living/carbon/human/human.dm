@@ -1133,7 +1133,7 @@
 			return
 		if(species.language)
 			remove_language(species.language)
-		if(species.icon_scale != 1 || species.y_shift)
+		if(species.icon_scale != 1)
 			update_transform()
 		if(species.default_language)
 			remove_language(species.default_language)
