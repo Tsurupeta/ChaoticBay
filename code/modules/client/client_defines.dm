@@ -70,3 +70,5 @@
 
 	/// Messages currently seen by this client
 	var/list/seen_messages
+
+	show_popup_menus = TRUE // right click menu

@@ -61,3 +61,11 @@ var/list/client_preference_stats_
 
 /stat_client_preference/proc/update_name(mob/user)
 	name = user.get_preference_value(client_preference)
+
+///Toggles whether or not you need to hold shift to access the right click menu
+/client/verb/toggle_right_click()
+	set name = "Toggle Right Click"
+	set category = "OOC"
+
+	show_popup_menus = !show_popup_menus
+	to_chat(src, "<span class='interface'>Right click [show_popup_menus ? "en" : "dis"]abled.</span>")
