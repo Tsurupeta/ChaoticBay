@@ -522,7 +522,7 @@
 		var/datum/firemode/current_mode = firemodes[sel_mode]
 		. += "\nThe fire selector is set to [current_mode.name]."
 
-/obj/item/gun/proc/switch_firemodes()
+/obj/item/gun/proc/switch_firemodes(mob/user)
 	if(firemodes.len <= 1)
 		return null
 
@@ -531,10 +531,13 @@
 		sel_mode = 1
 	var/datum/firemode/new_mode = firemodes[sel_mode]
 	new_mode.apply_to(src)
+	playsound(src, 'sound/weapons/selector.ogg', 60, FALSE)
+	to_chat(user, "<span class='notice'>\The [src] is now set to [new_mode.name].</span>")
 
 	return new_mode
 
 /obj/item/gun/attack_self(mob/user)
-	var/datum/firemode/new_mode = switch_firemodes(user)
-	if(new_mode)
-		to_chat(user, "<span class='notice'>\The [src] is now set to [new_mode.name].</span>")
+	return
+
+/obj/item/gun/RightClick(mob/user)
+	switch_firemodes(user)

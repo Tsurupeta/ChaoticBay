@@ -60,6 +60,20 @@
 		else
 			MiddleClickOn(A)
 		return 1
+
+	if(modifiers["right"])
+		if(modifiers["shift"])
+			ShiftRightClickOn(A)
+			return
+		if(modifiers["alt"])
+			AltRightClickOn(A)
+			return
+		if(modifiers["ctrl"])
+			CtrlRightClickOn(A)
+			return
+		RightClickOn(A)
+		return
+
 	if(modifiers["shift"])
 		ShiftClickOn(A)
 		return 0
@@ -69,13 +83,6 @@
 	if(modifiers["ctrl"])
 		CtrlClickOn(A)
 		return 1
-	if(modifiers["shift"] && modifiers["right"])
-		ShiftRightClickOn(A)
-		return
-	if(modifiers["alt"] && modifiers["right"])
-		return
-	if(modifiers["right"] && RightClickOn(A))
-		return
 
 	if(stat || paralysis || stunned || weakened)
 		return
@@ -264,6 +271,10 @@
 /mob/proc/AltRightClickOn(atom/A)
 	A.AltRightClick(src)
 
+///Called when a owner mob Alt + Rightmouseclicks an atom, given that Altclick does not return TRUE
+/mob/proc/CtrlRightClickOn(atom/A)
+	A.CtrlRightClick(src)
+
 ///Called when a mob Rightmouseclicks this atom
 /atom/proc/RightClick(mob/user)
 	return
@@ -274,6 +285,10 @@
 
 ///Called when a mob Alt + Rightmouseclicks this atom, given that mobs Altclick() does not return TRUE
 /atom/proc/AltRightClick(mob/user)
+	return
+
+///Called when a mob Ctrl + Rightmouseclicks this atom, given that mobs Ctrlclick() does not return TRUE
+/atom/proc/CtrlRightClick(mob/user)
 	return
 
 /*
