@@ -209,14 +209,6 @@
 /obj/item/gun/projectile/attack_self(mob/user as mob)
 	if(firemodes.len > 1)
 		..()
-	else
-		unload_ammo(user)
-
-/obj/item/gun/projectile/attack_hand(mob/user as mob)
-	if(user.get_inactive_hand() == src)
-		unload_ammo(user, allow_dump=0)
-	else
-		return ..()
 
 /obj/item/gun/projectile/afterattack(atom/A, mob/living/user)
 	..()
@@ -263,6 +255,37 @@
 		else
 			chambered.SpinAnimation(4, 1)
 		playsound(chambered, SFX_CASING_DROP, rand(45, 60), TRUE)
+
+/obj/item/gun/projectile/MouseDrop(var/obj/over_object)
+	var/mob/living/carbon/human/user = usr
+	if (!over_object || !(ishuman(user)))
+		return
+	if (!(src.loc == user))
+		return
+	if(user.incapacitated(INCAPACITATION_STUNNED|INCAPACITATION_KNOCKOUT))
+		return
+
+	if(ammo_magazine)
+		switch(over_object.name)
+			if("r_hand")
+				if(!user.put_in_r_hand(ammo_magazine))
+					unload_ammo(user, allow_dump = TRUE)
+					return
+			if("l_hand")
+				if(!user.put_in_l_hand(ammo_magazine))
+					unload_ammo(user, allow_dump = TRUE)
+					return
+			else
+				return
+		user.visible_message("[user] removes [ammo_magazine] from [src].",
+		SPAN_NOTICE("You remove [ammo_magazine] from [src]."))
+		playsound(src.loc, mag_eject_sound, 75)
+		ammo_magazine.update_icon()
+		ammo_magazine = null
+		update_icon()
+		return 1
+	else
+		return
 
 /* Unneeded -- so far.
 //in case the weapon has firemodes and can't unload using attack_hand()
