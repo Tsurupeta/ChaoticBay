@@ -71,10 +71,9 @@
 	#define DUST_LAYER 2
 
 // Reserve planes for openspace
-#define OPENSPACE_PLANE_START -462
-#define OPENSPACE_PLANE_END -22
-#define OPENSPACE_PLANE -463
-#define OVER_OPENSPACE_PLANE -22
+
+#define OPENSPACE_PLANE					-4
+#define OVER_OPENSPACE_PLANE			-3
 
 #define FLOOR_PLANE						-2
 #define DEFAULT_PLANE                   -1
@@ -244,10 +243,10 @@
 	plane = DEFAULT_PLANE
 
 /obj/screen/plane_master/ambient_occlusion/backdrop(mob/mymob)
-	filters = list()
-
 	if (istype(mymob) && mymob.client && mymob.get_preference_value("AMBIENT_OCCLUSION") == GLOB.PREF_YES)
-		filters += filter(type = "drop_shadow", x = 0, y = -2, size = 4, color = "#04080FAA")
+		src.add_filter("ao", 1, list(type = "drop_shadow", x = 0, y = -2, size = 4, color = "#04080FAA"))
+	else
+		src.remove_filter("ao")
 
 /obj/screen/plane_master/mouse_invisible
 	appearance_flags = PLANE_MASTER
@@ -268,3 +267,30 @@ GLOBAL_LIST_INIT(ghost_master, list(
 	new /obj/screen/plane_master/ghost_master(),
 	new /obj/screen/plane_master/ghost_dummy()
 ))
+
+/obj/screen/plane_master/effects_planemaster
+	appearance_flags = PLANE_MASTER | KEEP_TOGETHER
+	blend_mode = BLEND_OVERLAY
+
+/obj/screen/plane_master/effects_planemaster/openspace
+	plane = OPENSPACE_PLANE
+
+/obj/screen/plane_master/effects_planemaster/over_openspace
+	plane = OVER_OPENSPACE_PLANE
+
+/obj/screen/plane_master/effects_planemaster/floor
+	plane = FLOOR_PLANE
+
+/obj/screen/plane_master/effects_planemaster/default
+	plane = DEFAULT_PLANE
+
+/obj/screen/plane_master/effects_planemaster/default/backdrop(mob/mymob)
+	remove_filter("ao")
+	if (istype(mymob) && mymob.client && mymob.get_preference_value("AMBIENT_OCCLUSION") == GLOB.PREF_YES)
+		src.add_filter("ao", 1, list(type = "drop_shadow", x = 0, y = -2, size = 4, color = "#04080FAA"))
+
+/obj/screen/plane_master/effects_planemaster/observer
+	plane = OBSERVER_PLANE
+
+/obj/screen/plane_master/effects_planemaster/above_lighting
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE

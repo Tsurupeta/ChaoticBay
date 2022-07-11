@@ -25,8 +25,12 @@
 		master_planes = list()
 
 	var/list/planes = list(
-		/obj/screen/plane_master/ambient_occlusion,
-		/obj/screen/plane_master/mouse_invisible
+		/obj/screen/plane_master/mouse_invisible,
+		/obj/screen/plane_master/effects_planemaster/openspace,
+		/obj/screen/plane_master/effects_planemaster/over_openspace,
+		/obj/screen/plane_master/effects_planemaster/floor,
+		/obj/screen/plane_master/effects_planemaster/default,
+		/obj/screen/plane_master/effects_planemaster/above_lighting
 	)
 
 	for (var/plane_type in planes)
@@ -342,3 +346,14 @@
 
 /mob/new_player/add_click_catcher()
 	return
+
+
+/mob/proc/ab()
+	for (var/plane_num in master_planes)
+		var/obj/screen/plane_master/plane = master_planes[plane_num]
+		plane.add_filter("blur", 11, list(type = "blur", size = 1))
+
+/mob/proc/rb()
+	for (var/plane_num in master_planes)
+		var/obj/screen/plane_master/plane = master_planes[plane_num]
+		plane.remove_filter("blur")

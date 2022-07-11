@@ -41,6 +41,7 @@
 #include "code\__defines\donations_defines.dm"
 #include "code\__defines\explosion.dm"
 #include "code\__defines\feedback.dm"
+#include "code\__defines\filters.dm"
 #include "code\__defines\flags.dm"
 #include "code\__defines\footsteps.dm"
 #include "code\__defines\gamemode.dm"
